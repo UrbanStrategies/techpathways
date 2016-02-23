@@ -1,5 +1,4 @@
-dd2014
+TechPathways.org
 ======
 
-Measure DD Redistricting Commission
-Simple page to raise awareness about DD
+East Bay tech training and career pathways site
