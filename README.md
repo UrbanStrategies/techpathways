@@ -1,5 +1,4 @@
-dd2014
+techPathWays.org
 ======
 
-Measure DD Redistricting Commission
-Simple page to raise awareness about DD
+Initial design for techPathWays.org
