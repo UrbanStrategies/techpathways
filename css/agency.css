@@ -198,7 +198,9 @@ fieldset[disabled] .btn-xl.active {
     color: #fed136;
     background-color: #fff;
 }
-
+.navbar{
+  z-index: 99;
+}
 .navbar-default {
     border-color: transparent;
     background-color: transparent;
@@ -214,13 +216,15 @@ fieldset[disabled] .btn-xl.active {
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
     color: #0A80FF;
+    transform: translateX(-6px);
+    transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
 .navbar-default .navbar-brand.active {
-
+  transform: translateX(0);
 }
 
 .navbar-default .navbar-collapse {
