@@ -828,44 +828,35 @@ section#contact .form-control:focus {
 /*input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: white;
 }*/
-section#contact input::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder {
     text-transform:  ;
     font-family: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: 400;
-    /*color: #fff;*/
+    color: #0a80ff;
 }
 
-section#contact input:-moz-placeholder {
+
+.form-control::-moz-placeholder {
     text-transform:  ;
     font-family: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: 400;
-    /*color: #fff;*/
+    color: #0a80ff;
 }
 
-section#contactinput input::-moz-placeholder {
+.form-control:-ms-input-placeholder {
     text-transform:  ;
     font-family: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: 400;
-    /*color: #fff;*/
-}
-
-section#contact input:-ms-input-placeholder {
-    text-transform:  ;
-    font-family: -apple-system, BlinkMacSystemFont,
-    "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
-    font-weight: 400;
-    /*color: #fff;*/
+    color: #0a80ff;
 }
 
 section#contact .text-danger {
