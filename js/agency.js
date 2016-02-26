@@ -53,6 +53,12 @@ function moveCircle(e) {
       y: tiltx*10,
       ease: Back.easeOut.config(1.7)
     });
+
+    TweenMax.to(".hashdecoration", 5, {
+      x: tilty*-60,
+      y: tiltx*-60,
+      ease: Back.easeOut.config(1.7)
+    });
 }
 $(window).on('mousemove', moveCircle);
 ///particle generator

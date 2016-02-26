@@ -10,8 +10,18 @@ body {
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
-    background: url('../img/mainbg.svg') no-repeat center center;
-    background-size: cover;
+    position: relative;
+}
+
+.hashdecoration{
+  background: url('../img/mainbg.svg') no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  right: -60px;
+  bottom: 0;
+  pointer-events: none;
 }
 
 .text-muted {
@@ -731,7 +741,7 @@ aside.clients img {
 
 section#contact {
     background-color: #0A80FF;
-
+    height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
