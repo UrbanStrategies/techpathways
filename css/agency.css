@@ -745,7 +745,6 @@ aside.clients img {
 
 section#contact {
     background-color: #0A80FF;
-    height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1058,7 +1057,11 @@ body {
       background-repeat: no-repeat;
       background-size: cover;
       padding:20vh 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
   }
+
     .navbar-default {
         padding:  0;
         border: 0;
