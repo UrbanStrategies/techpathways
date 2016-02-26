@@ -645,6 +645,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/team\/eda.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 33175,
+		"inputAbbreviatedPath": "\/img\/team\/eda.jpg",
+		"outputAbbreviatedPath": "\/img\/team\/eda.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/team\/raizlabs.png": {
 		"fileType": 32768,
 		"ignore": 0,
