@@ -65,6 +65,7 @@ h6 {
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: 400;
+    margin-top: 0;
 }
 
 .img-centered {
@@ -155,7 +156,7 @@ fieldset[disabled] .btn-primary.active {
     border:none;
     color: #0A80FF;
     transform: scale(1.1);
-    box-shadow: 0px 7px 0px rgba(0,0,0,.3)
+    box-shadow: 0px 7px 0px rgba(0,0,0,.3);
 }
 
 .btn-xl:active,
@@ -190,10 +191,13 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default {
     border-color: transparent;
-    background-color: #0A80FF;
+    background-color: transparent;
     height: 60px;
-}
 
+}
+.navbar-shrink{
+  background: white;
+}
 .navbar-default .navbar-brand {
     font-family: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen",
@@ -211,6 +215,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default .navbar-collapse {
   border: none;
+  text-align: center;
 }
 
 .navbar-default .navbar-toggle {
@@ -220,11 +225,12 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #fff;
+    background-color: #92D0FF;
 }
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
+  background: none;
 }
 
 .navbar-default .nav li a {
@@ -243,20 +249,19 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .nav li a:hover,
 .navbar-default .nav li a:focus {
     outline: 0;
-    color: #fff;
+    color: #0A80FF;
 }
 .navbar-nav{
 }
 .navbar-default .navbar-nav>.active>a {
     border-radius: 0;
-    color: #fff;
-    background-color: #92D0FF;
+    color: #92D0FF;
+    background: transparent;
 }
 
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
-    color: #fff;
-    background-color: #0A80FF;
+    color: #0A80FF;
 }
 .headercontainer{
   margin: 0;
@@ -267,53 +272,29 @@ fieldset[disabled] .btn-xl.active {
   padding: 0;
 }
 .navbar-collapse{
-  background: #0A80FF;
+  background: #fff;
   margin-top: 7px;
 }
-.navbar-brand img{
+.navbar-brand svg{
   height: 60px;
 }
-@media(min-width:768px) {
-    .navbar-default {
-        padding:  0;
-        border: 0;
-        margin: 0;
-        background-color: transparent;
-        -webkit-transition: padding .3s;
-        -moz-transition: padding .3s;
-        transition: padding .3s;
-    }
-
-    .navbar-default .navbar-brand {
-        font-size: 2em;
-        -webkit-transition: all .3s;
-        -moz-transition: all .3s;
-        transition: all .3s;
-    }
-    .navbar-default .nav li a{
-      background: transparent;
-    }
-    .navbar-default .navbar-nav>.active>a {
-        border-radius: 0px;
-        background: rgba(146,208,255,.5);
-    }
-
-    .navbar-default.navbar-shrink {
-        padding:  0;
-        background-color: #0A80FF;
-    }
-
-    .navbar-default.navbar-shrink .navbar-brand {
-        font-size: 1.5em;
-    }
-    .navbar-nav.navbar-right:last-child{
-      margin: 0;
-    }
-    .navbar-collapse{
-      background: transparent;
-      margin-top: 0;
-    }
+.navbar-shrink svg path, .navbar-shrink svg polygon{
+  fill: #0A80FF !important;
 }
+.navbar-shrink svg path#pathway{
+  fill: #92D0FF !important;
+}
+
+.flexrow{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.team-member img{
+  mix-blend-mode: multiply;
+}
+
 
 header {
     text-align: center;
@@ -329,8 +310,8 @@ header {
 }
 
 header .intro-text {
-    padding-top: 100px;
-    padding-bottom: 50px;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
     text-align: left;
 }
 
@@ -352,9 +333,9 @@ header .intro-text .intro-heading {
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 40px;
+    font-size: 48px;
+    font-weight: 500 !important;
+    line-height: 48px;
 }
 
 @media(min-width:768px) {
@@ -385,16 +366,35 @@ header .intro-text .intro-heading {
         font-weight: 500;
         line-height: 72px;
     }
+
+    section h2.section-heading {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 48px;
+        color: #0A80FF;
+    }
+
+    section h3.section-subheading {
+        margin-bottom: 72px;
+        text-transform: none;
+        font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans",
+        "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 300;
+    }
 }
 
 section {
-    padding: 100px 0;
+    padding: 20px 0;
 }
 
 section h2.section-heading {
     margin-top: 0;
     margin-bottom: 15px;
-    font-size: 48px;
+    font-size: 36px;
     color: #0A80FF;
 }
 
@@ -417,7 +417,7 @@ section h3.section-subheading {
 }
 
 .service-heading {
-    margin: 15px 0;
+    margin: 21px 0 0;
     text-transform: none;
     font-size: 24px;
     line-height: 36px;
@@ -731,13 +731,52 @@ aside.clients img {
 
 section#contact {
     background-color: #0A80FF;
-    background-image: url(../img/colorbg.svg);
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding:144px 0;
+    padding:5vh 0 0;
+    position: relative;
+    overflow: hidden;
+}
+#dotgenerator{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
+#dotgenerator div{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.brackets{
+  background: url('../img/brackets.svg');
+}
+.dots{
+  background: url('../img/dots.svg');
+}
+.hash{
+  background: url('../img/hash.svg');
+}
+
+#contactForm{
+  padding: 2vh;
+}
+#contactForm h4{
+  margin-top: 21px;
+}
+#contactForm .btn-xl{
+  transform-origin: 50% 100%;
+}
 section#contact .section-heading {
     color: #fff;
 }
@@ -751,6 +790,8 @@ section#contact .form-group textarea {
     padding: 20px;
     font-size: 16px;
     line-height: 24px;
+    background:#92d0ff;
+    transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
 }
 
 section#contact .form-group input.form-control {
@@ -766,6 +807,10 @@ section#contact .form-group textarea.form-control {
 section#contact .form-control:focus {
     border: none;
     box-shadow: none;
+    font-weight: 600;
+    transform: scale(1.02);
+    box-shadow: 0px 7px 0px rgba(0,0,0,.3);
+    background: white;
 }
 
 section#contact::-webkit-input-placeholder {
@@ -774,42 +819,42 @@ section#contact::-webkit-input-placeholder {
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
-    font-weight: 700;
-    color: #bbb;
+    font-weight: 400;
+    color: #fff;
 }
 
-section#contact:-moz-placeholder {
+section#contact input:-moz-placeholder {
     text-transform:  ;
     font-family: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
-    font-weight: 700;
-    color: #bbb;
+    font-weight: 400;
+    color: #fff;
 }
 
-section#contact::-moz-placeholder {
+section#contactinput input::-moz-placeholder {
     text-transform:  ;
     font-family: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
-    font-weight: 700;
-    color: #bbb;
+    font-weight: 400;
+    color: #fff;
 }
 
-section#contact:-ms-input-placeholder {
+section#contact input:-ms-input-placeholder {
     text-transform:  ;
     font-family: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
-    font-weight: 700;
-    color: #bbb;
+    font-weight: 400;
+    color: #fff;
 }
 
 section#contact .text-danger {
-    color: #e74c3c;
+    color: #fff;
 }
 
 footer {
@@ -946,12 +991,33 @@ ul.social-buttons li a:active {
 
 ::-moz-selection {
     text-shadow: none;
-    background: #fed136;
+    background: #92D0FF;
 }
 
 ::selection {
     text-shadow: none;
-    background: #fed136;
+    background: #92D0FF;
+}
+
+.fa-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+
+    line-height: 2em;
+    vertical-align: middle;
+}
+
+.fa-stack{
+  width:100% !important;
+  text-align: center;
+}
+.fa-4x{
+  font-size: 6em !important;
+}
+.fa-stack img{
+  height: 100% ;
+  width: 50%;
 }
 
 img::selection {
@@ -964,4 +1030,75 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #fed136;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
+  background:none;
+}
+
+
+@media(min-width:768px) {
+
+  section#contact {
+      background-color: #0A80FF;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding:20vh 0;
+  }
+    .navbar-default {
+        padding:  0;
+        border: 0;
+        margin: 0;
+        background-color: transparent;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+    }
+
+    .navbar-default .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+    }
+    .navbar-default .nav li a{
+      background: transparent;
+    }
+    .navbar-default .navbar-nav>.active>a {
+        border-radius: 0px;
+        color: #92D0FF;
+    }
+
+    .navbar-default.navbar-shrink {
+        padding:  0;
+        mix-blend-mode: screen;
+    }
+
+    .navbar-default.navbar-shrink .navbar-brand {
+        font-size: 1.5em;
+    }
+    .navbar-nav.navbar-right:last-child{
+      margin: 0;
+    }
+    .navbar-collapse{
+      background: transparent;
+      margin-top: 0;
+    }
+
+  /*.hashtag {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  z-index: 2;
+  background: url("../img/hashtag.svg") no-repeat center center;
+  background-size: contain;
+  }
+  .bracket {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  z-index: 2;
+  background: url("../img/bracket.svg") no-repeat center center;
+  background-size: contain;
+  }*/
 }
