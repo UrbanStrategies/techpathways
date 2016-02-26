@@ -1,4 +1,4 @@
-TechPathways.org
+techPathWays.org
 ======
 
-East Bay tech training and career pathways site
+Initial design for techPathWays.org

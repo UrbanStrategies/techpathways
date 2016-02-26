@@ -6,20 +6,38 @@
 
 body {
     overflow-x: hidden;
-    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    position: relative;
+}
+
+.hashdecoration{
+  background: url('../img/mainbg.svg') no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  right: -60px;
+  bottom: 0;
+  pointer-events: none;
 }
 
 .text-muted {
-    color: #777;
+    color: #A0ADB5;
 }
-
+.text-tinted {
+    color: #92D0FF;
+}
 .text-primary {
-    color: #fed136;
+    color: #0A80FF;
 }
 
 p {
-    font-size: 14px;
-    line-height: 1.75;
+    font-size: 16px;
+    line-height: 24px;
+    color: #26323D;
 }
 
 p.large {
@@ -51,9 +69,13 @@ h3,
 h4,
 h5,
 h6 {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    text-transform:  ;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    margin-top: 0;
 }
 
 .img-centered {
@@ -70,8 +92,11 @@ h6 {
 
 .btn-primary {
     border-color: #fed136;
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform:  ;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: 700;
     color: #fff;
     background-color: #fed136;
@@ -82,9 +107,8 @@ h6 {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    border-color: #f6bf01;
     color: #fff;
-    background-color: #fec503;
+    border:none;
 }
 
 .btn-primary:active,
@@ -118,15 +142,20 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn-xl {
-    padding: 20px 40px;
-    border-color: #fed136;
+    padding: 12px 24px;
     border-radius: 3px;
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    background-color: #fed136;
+    border: none;
+    text-transform:  ;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: #0A80FF;
+    background-color: #fff;
+    transform-origin: 0 50%;
+    transition: all 300ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
 }
 
 .btn-xl:hover,
@@ -134,9 +163,10 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl:active,
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
-    border-color: #f6bf01;
-    color: #fff;
-    background-color: #fec503;
+    border:none;
+    color: #0A80FF;
+    transform: scale(1.1);
+    box-shadow: 0px 7px 0px rgba(0,0,0,.3);
 }
 
 .btn-xl:active,
@@ -168,98 +198,117 @@ fieldset[disabled] .btn-xl.active {
     color: #fed136;
     background-color: #fff;
 }
-
+.navbar{
+  z-index: 99;
+}
 .navbar-default {
     border-color: transparent;
-    background-color: #0027FF;
-}
+    background-color: transparent;
+    height: 60px;
 
+}
+.navbar-shrink{
+  background: white;
+}
 .navbar-default .navbar-brand {
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,cursive;
-    color: #fed136;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    color: #0A80FF;
+    transform: translateX(-6px);
+    transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
 .navbar-default .navbar-brand.active {
-    color: #fec503;
+  transform: translateX(0);
 }
 
 .navbar-default .navbar-collapse {
-    border-color: rgba(255,255,255,.02);
+  border: none;
+  text-align: center;
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #fed136;
-    background-color: #0027FF;
+  border: none;
+  margin-top: 13px;
+    margin-right: 20px;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #fff;
+    background-color: #92D0FF;
 }
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #0027FF;
+  background: none;
 }
 
 .navbar-default .nav li a {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform:  ;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
-    color: #fff;
+    font-size: 21px;
+    color: #92D0FF;
+    padding: 20px;
 }
 
 .navbar-default .nav li a:hover,
 .navbar-default .nav li a:focus {
     outline: 0;
-    color: #fed136;
+    color: #0A80FF;
 }
-
+.navbar-nav{
+}
 .navbar-default .navbar-nav>.active>a {
     border-radius: 0;
-    color: #fff;
-    background-color: #0027FF;
+    color: #92D0FF;
+    background: transparent;
 }
 
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
-    color: #fff;
-    background-color: #0027FF;
+    color: #0A80FF;
+}
+.headercontainer{
+  margin: 0;
+  width: 100%;
+  padding: 0;
+}
+.navbar-brand{
+  padding: 0;
+}
+.navbar-collapse{
+  background: #fff;
+  margin-top: 7px;
+}
+.navbar-brand svg{
+  height: 60px;
+}
+.navbar-shrink svg path, .navbar-shrink svg polygon{
+  fill: #0A80FF !important;
+}
+.navbar-shrink svg path#pathway{
+  fill: #92D0FF !important;
 }
 
-@media(min-width:768px) {
-    .navbar-default {
-        padding: 25px 0;
-        border: 0;
-        background-color: transparent;
-        -webkit-transition: padding .3s;
-        -moz-transition: padding .3s;
-        transition: padding .3s;
-    }
-
-    .navbar-default .navbar-brand {
-        font-size: 2em;
-        -webkit-transition: all .3s;
-        -moz-transition: all .3s;
-        transition: all .3s;
-    }
-
-    .navbar-default .navbar-nav>.active>a {
-        border-radius: 3px;
-    }
-
-    .navbar-default.navbar-shrink {
-        padding: 10px 0;
-        background-color: #222;
-    }
-
-    .navbar-default.navbar-shrink .navbar-brand {
-        font-size: 1.5em;
-    }
+.flexrow{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
+
+.team-member img{
+  mix-blend-mode: multiply;
+}
+
 
 header {
     text-align: center;
@@ -275,25 +324,32 @@ header {
 }
 
 header .intro-text {
-    padding-top: 100px;
-    padding-bottom: 50px;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    text-align: left;
 }
 
 header .intro-text .intro-lead-in {
     margin-bottom: 25px;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
     font-size: 22px;
-    font-style: italic;
+    font-style:  ;
     line-height: 22px;
 }
 
 header .intro-text .intro-heading {
     margin-bottom: 25px;
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 50px;
-    font-weight: 700;
-    line-height: 50px;
+    text-transform:  ;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 48px;
+    font-weight: 500 !important;
+    line-height: 48px;
 }
 
 @media(min-width:768px) {
@@ -304,39 +360,68 @@ header .intro-text .intro-heading {
 
     header .intro-text .intro-lead-in {
         margin-bottom: 25px;
-        font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
         font-size: 40px;
-        font-style: italic;
+        font-style:  ;
         line-height: 40px;
     }
 
     header .intro-text .intro-heading {
         margin-bottom: 50px;
-        text-transform: uppercase;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 75px;
-        font-weight: 700;
-        line-height: 75px;
+        text-transform:  ;
+        font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 72px;
+        font-weight: 500;
+        line-height: 72px;
+    }
+
+    section h2.section-heading {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 48px;
+        color: #0A80FF;
+    }
+
+    section h3.section-subheading {
+        margin-bottom: 72px;
+        text-transform: none;
+        font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans",
+        "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 300;
     }
 }
 
 section {
-    padding: 100px 0;
+    padding: 20px 0;
 }
 
 section h2.section-heading {
     margin-top: 0;
     margin-bottom: 15px;
-    font-size: 40px;
+    font-size: 36px;
+    color: #0A80FF;
 }
 
 section h3.section-subheading {
-    margin-bottom: 75px;
+    margin-bottom: 72px;
     text-transform: none;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    font-style: italic;
-    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 300;
 }
 
 @media(min-width:768px) {
@@ -346,8 +431,12 @@ section h3.section-subheading {
 }
 
 .service-heading {
-    margin: 15px 0;
+    margin: 21px 0 0;
     text-transform: none;
+    font-size: 24px;
+    line-height: 36px;
+    color: #0A80FF;
+    font-weight: 500;
 }
 
 #portfolio .portfolio-item {
@@ -412,9 +501,12 @@ section h3.section-subheading {
 
 #portfolio .portfolio-item .portfolio-caption p {
     margin: 0;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
     font-size: 16px;
-    font-style: italic;
+    font-style:  ;
 }
 
 #portfolio * {
@@ -652,12 +744,53 @@ aside.clients img {
 }
 
 section#contact {
-    background-color: #222;
-    background-image: url(../img/map-image.png);
+    background-color: #0A80FF;
+    height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
+    padding:5vh 0 0;
+    position: relative;
+    overflow: hidden;
+}
+#dotgenerator{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
+#dotgenerator div{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.brackets{
+  background: url('../img/brackets.svg');
+}
+.dots{
+  background: url('../img/dots.svg');
+}
+.hash{
+  background: url('../img/hash.svg');
+}
+
+#contactForm{
+  padding: 2vh;
+}
+#contactForm h4{
+  margin-top: 21px;
+}
+#contactForm .btn-xl{
+  transform-origin: 50% 100%;
+}
 section#contact .section-heading {
     color: #fff;
 }
@@ -669,51 +802,73 @@ section#contact .form-group {
 section#contact .form-group input,
 section#contact .form-group textarea {
     padding: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    background:#92d0ff;
+    transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
 }
 
 section#contact .form-group input.form-control {
     height: auto;
+    border: none;
 }
 
 section#contact .form-group textarea.form-control {
-    height: 236px;
+    height: 242px;
+    border: none;
 }
 
 section#contact .form-control:focus {
-    border-color: #fed136;
+    border: none;
     box-shadow: none;
+    font-weight: 600;
+    transform: scale(1.02);
+    box-shadow: 0px 7px 0px rgba(0,0,0,.3);
+    background: white;
 }
 
 section#contact::-webkit-input-placeholder {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    color: #bbb;
+    text-transform:  ;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    color: #fff;
 }
 
-section#contact:-moz-placeholder {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    color: #bbb;
+section#contact input:-moz-placeholder {
+    text-transform:  ;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    color: #fff;
 }
 
-section#contact::-moz-placeholder {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    color: #bbb;
+section#contactinput input::-moz-placeholder {
+    text-transform:  ;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    color: #fff;
 }
 
-section#contact:-ms-input-placeholder {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    color: #bbb;
+section#contact input:-ms-input-placeholder {
+    text-transform:  ;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    color: #fff;
 }
 
 section#contact .text-danger {
-    color: #e74c3c;
+    color: #fff;
 }
 
 footer {
@@ -722,17 +877,23 @@ footer {
 }
 
 footer span.copyright {
-    text-transform: uppercase;
+    text-transform:  ;
     text-transform: none;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
     line-height: 40px;
 }
 
 footer ul.quicklinks {
     margin-bottom: 0;
-    text-transform: uppercase;
+    text-transform:  ;
     text-transform: none;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
     line-height: 40px;
 }
 
@@ -790,9 +951,12 @@ ul.social-buttons li a:active {
 
 .portfolio-modal .modal-content p.item-intro {
     margin: 20px 0 30px;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
     font-size: 16px;
-    font-style: italic;
+    font-style:  ;
 }
 
 .portfolio-modal .modal-content ul.list-inline {
@@ -841,12 +1005,33 @@ ul.social-buttons li a:active {
 
 ::-moz-selection {
     text-shadow: none;
-    background: #fed136;
+    background: #92D0FF;
 }
 
 ::selection {
     text-shadow: none;
-    background: #fed136;
+    background: #92D0FF;
+}
+
+.fa-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+
+    line-height: 2em;
+    vertical-align: middle;
+}
+
+.fa-stack{
+  width:100% !important;
+  text-align: center;
+}
+.fa-4x{
+  font-size: 6em !important;
+}
+.fa-stack img{
+  height: 100% ;
+  width: 50%;
 }
 
 img::selection {
@@ -859,4 +1044,75 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #fed136;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
+  background:none;
+}
+
+
+@media(min-width:768px) {
+
+  section#contact {
+      background-color: #0A80FF;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding:20vh 0;
+  }
+    .navbar-default {
+        padding:  0;
+        border: 0;
+        margin: 0;
+        background-color: transparent;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+    }
+
+    .navbar-default .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+    }
+    .navbar-default .nav li a{
+      background: transparent;
+    }
+    .navbar-default .navbar-nav>.active>a {
+        border-radius: 0px;
+        color: #92D0FF;
+    }
+
+    .navbar-default.navbar-shrink {
+        padding:  0;
+        mix-blend-mode: screen;
+    }
+
+    .navbar-default.navbar-shrink .navbar-brand {
+        font-size: 1.5em;
+    }
+    .navbar-nav.navbar-right:last-child{
+      margin: 0;
+    }
+    .navbar-collapse{
+      background: transparent;
+      margin-top: 0;
+    }
+
+  /*.hashtag {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  z-index: 2;
+  background: url("../img/hashtag.svg") no-repeat center center;
+  background-size: contain;
+  }
+  .bracket {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  z-index: 2;
+  background: url("../img/bracket.svg") no-repeat center center;
+  background-size: contain;
+  }*/
 }
