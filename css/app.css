@@ -1,0 +1,158 @@
+@media (min-width: 768px) {
+  .text-lg-right {
+    text-align: right;
+  }
+}
+
+@media (max-width: 768px) {
+  .container.main-container {
+    width: 90%;
+  }
+}
+
+.form-section {
+  font-size: 2.5em;
+  position: relative;
+}
+.container.main-container .form-section:first-child {
+  padding-top: 50px;
+}
+
+.form-section .selection-dropdown {
+  border-bottom: solid 1px #92D0FF;
+  color: white;
+  padding: 5px;
+}
+.form-section .selection-arrow {
+  float: right;
+  line-height: 150%;
+}
+
+.table-label-1 {
+  margin-top: 100px;
+  padding: 0 5px 20px 5px;
+  color: white;
+  border-radius: 5px;
+  background-color: #3EA3FF;
+  
+}
+.table-label-1 * {
+  background-color: #3EA3FF;
+}
+
+.filter-set {
+  margin-top: 35px;
+}
+
+.table-label-1 .filter-box {
+  color: #92D0FF;
+  padding: 5px;
+  background-color: #0A80FF;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.table-label-1 .selected-filter {
+  background-color: white;
+}
+
+.org-box {
+  background-color: white;
+  border-radius: 5px;
+  color: #26323D;
+  font-size: 16px;
+  z-index: 2;
+  position: relative;
+}
+.org-box .org-icon {
+  padding-top: 20px;
+}
+
+.org-box .org-logo {
+  font-size: 1.25em;
+  color: black;
+  min-height: 28px;
+}
+
+.org-box .lesson-attributes {
+  padding-top: 20px;
+}
+
+.org-box .attribute-label {
+  color: #999;
+  font-weight: bold;
+}
+
+.left-rounded {
+  border-radius: 5px 0 0 5px;
+}
+.right-rounded {
+  border-radius: 0 5px 5px 0;
+}
+
+.box-left {
+  float: left;
+}
+
+.box-right {
+  float: right;
+}
+
+.your-pathways {
+
+  margin-bottom: -10px;
+  color: white;
+  background-color: #666;
+  font-weight: bold;
+  text-align: center;
+  line-height: 400%;
+}
+
+.chessboard {
+  position: relative;
+}
+
+.chessboard:before {
+  background: linear-gradient(-45deg, transparent 14px, #666 0), linear-gradient(45deg, transparent 14px, #666 0);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  background-size: 20px 20px;
+  content: " ";
+  display: block;
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 20px;
+}
+
+.lesson-square {
+  padding: 20px 10px;
+}
+.lesson-square.even-square {
+  background-color: white;
+}
+.lesson-square.odd-square {
+  background-color: #EDF4F7;
+}
+
+.course-modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #0A80FF;
+  display: none;
+  z-index: 10;
+  vertical-align: middle;
+}
+
+.course-modal .description-box {
+  height: 50%;
+  width: 50%;
+  margin: 25% auto;
+  border-radius: 8px;
+  background-color: white;
+}
