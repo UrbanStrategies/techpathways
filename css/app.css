@@ -1,3 +1,6 @@
+/* navy blue:   color: #26323D; */
+/* dark blue: #0A80FF; */
+
 @media (min-width: 768px) {
   .text-lg-right {
     text-align: right;
@@ -20,8 +23,10 @@
 
 .form-section .selection-dropdown {
   border-bottom: solid 1px #92D0FF;
+  position: relative;
   color: white;
-  padding: 5px;
+  padding: 5px 5px 5px 15px;
+  cursor: pointer;
 }
 .form-section .selection-arrow {
   float: right;
@@ -155,4 +160,32 @@
   margin: 25% auto;
   border-radius: 8px;
   background-color: white;
+}
+
+.search-selection {
+  background-color: white;
+  color: #0A80FF;
+  position: absolute;
+  left: 102%;
+  top: 31%;
+  width: 75%;
+  z-index: 10;
+  display: none;
+}
+.search-selection .label-box {
+  font-size: 0.3em;
+  color: #26323D;
+  padding-left: 9px;
+}
+
+@media (max-width: 768px) {
+  .search-selection {
+    top: 100%;
+    left: 25%;
+  }
+}
+
+.search-selection .option-box {
+  padding: 0px 10px 5px;
+  font-size: 0.6em;
 }
