@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='techpaths'>
 
 <head>
 
@@ -9,6 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-route.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script src='js/models.js'></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -30,19 +34,9 @@
     <!-- Custom CSS -->
     <link href="css/agency_app.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" ng-controller='techpaths_ctrl'>
 
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -95,61 +89,22 @@
       <div class="container main-container">
 	<!-- form section -->
 	<div class='form-section'>
-          <div class="row">
-            <div class="col-lg-4 col-lg-offset-1 text-lg-right text-tinted selection-label text-tinted">I'm</div>
-	    <div class='col-lg-4 text-tinted selection-dropdown' data-target-id='1'>a student
+          <div class="row" ng-repeat = 'dd_rec in dd_recs'>
+            <div class="col-lg-4 col-lg-offset-1 text-lg-right text-tinted selection-label text-tinted">{{dd_rec['label']}}</div>
+	    <div class='col-lg-4 text-tinted selection-dropdown' data-target-id={{dd_rec['id']}}>{{dd_rec['options'][dd_selections[dd_rec['id']]]}}
 	      <i class='fa fa-angle-down selection-arrow'>
 	      </i>
 
-	      <div class=' search-selection' id='search-dropdown-1'>
+	      <div class=' search-selection' id={{'search-dropdown-'+dd_rec['id']}}>
 		<div class='label-box'>
 		     Change to
 		</div>
-		<div class='option-box'>
-		  an employer
-		</div>
-		<div class='option-box'>
-		  an employee
-		</div>
-		<div class='option-box'>
-		  just looking
+		<div data-rec-index={{dd_rec['id']}} class='option-box' ng-repeat='option in dd_unselected(dd_rec["id"])'>
+		  {{option}}
 		</div>
 	      </div>
 	    </div>
           </div>
-
-          <div class="row ">
-            <div class="col-lg-4 col-lg-offset-1 text-lg-right text-tinted selection-label text-tinted">I want to be
-	    </div>
-	    <div class='col-lg-4 text-tinted selection-dropdown' data-target-id='2'>an engineer
-	      <i class='fa fa-angle-down selection-arrow'>
-	      </i>
-
-	      <div class=' search-selection' id='search-dropdown-2'>
-		<div class='label-box'>
-		     Change to
-		</div>
-		<div class='option-box'>
-		  an entrepreneur
-		</div>
-		<div class='option-box'>
-		  a mentor
-		</div>
-		<div class='option-box'>
-		  an engineer
-		</div>
-	      </div>
-	    </div>
-          </div>	
-
-          <div class="row ">
-            <div class="col-lg-4 col-lg-offset-1 text-lg-right text-tinted selection-label text-tinted">My goal is to
-	    </div>
-	    <div class='col-lg-4 text-tinted selection-dropdown'>intern
-	      <i class='fa fa-angle-down selection-arrow'>
-	      </i>
-	    </div>
-	  </div>
         </div>
 
         <div class="row table-label-1">
@@ -252,8 +207,6 @@
 	<!-- drop down chess board end -->	  
       </div> <!-- main container -->      
     </section>
-
-    <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
