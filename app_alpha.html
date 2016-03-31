@@ -12,6 +12,8 @@
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-route.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script src='js/extracted_data.js'></script>
+    <script src='js/data.js'></script>
     <script src='js/models.js'></script>
 
 <script>
@@ -139,73 +141,65 @@
 	  </div>
 	</div> <!-- table label-1 -->
 
-	<div class='row org-box'>
-	  <div class='col-lg-1 col-xs-2 org-icon'>
-	    <img src='img/stride_logo.png' class='img-responsive'>
-	  </div>
+	<div class='org-list' ng-repeat='org in orgs'>
+	  <div id='{{"org-box-" + $org["id"]}}' class='row org-box'>
+	    <div class='col-lg-1 col-xs-2 org-icon'>
+	      <img ng-src="{{org['logo_link']}}" class='img-responsive'>
+	    </div>
 
-	  <div class='col-lg-6 col-xs-10'>
-	    <div class='org-logo'>
-	      The Stride Center
+	    <div class='col-lg-6 col-xs-10'>
+	      <div class='org-logo'>
+		{{ org['name'] }}
+	      </div>
+	      <div class=' org-description'>
+		{{ org['short_desc'] }}
+	      </div>
 	    </div>
-	    <div class=' org-description'>
-	      Now is the time for all good men to come to the aid of training and equity in the community and for people of all ages.
-	    </div>
-	  </div>
 
-	  <div class='col-lg-5 col-xs-12'>
-	    <div class='org-logo'>
+	    <div class='col-lg-5 col-xs-12'>
+	      <div class='org-logo'>
+	      </div>
+	      <div class=' org-description'>
+		<span class='attribute-label'>Training Includes </span>{{ org['short_training'] }}
+	      </div>
 	    </div>
-	    <div class=' org-description'>
-	      <span class='attribute-label'>Training Includes </span>Javascript, Cocoa, Ruby, C#, HTML, CSS, iOS, Python, PHP...
-	    </div>
-	  </div>
 
-	  <div class='col-lg-6 col-lg-offset-1 col-xs-12  lesson-attributes'>
-	    <div class=' box-left'>
-	      <span class='attribute-label'>Price</span> Free
+	    <div class='col-lg-6 col-lg-offset-1 col-xs-12  lesson-attributes'>
+	      <div class=' box-left'>
+		<span class='attribute-label'>Price</span> Free
+	      </div>
+	      <div class='box-right'>
+		<span class='attribute-label'>Skill Level</span> Beginner
+	      </div>
 	    </div>
-	    <div class='box-right'>
-	      <span class='attribute-label'>Skill Level</span> Beginner
-	    </div>
-	  </div>
 	  
-	  <div class=' col-lg-5 col-xs-12 lesson-attributes'>
-	    <div class='box-left'>
-	      <span class='attribute-label'>Location</span> Oakland
+	    <div class=' col-lg-5 col-xs-12 lesson-attributes'>
+	      <div class='box-left'>
+		<span class='attribute-label'>Location</span> Oakland
+	      </div>
 	    </div>
-	  </div>
-	</div> <!-- org box -->
+	  </div> <!-- org box -->
 
-	<!-- drop down details box -->
-	<div class='row your-pathways'>
-	  <div class='col-lg-12'>
-	    Your pathways at Hack The Hood
-	  </div>
-	</div>
-	<div class='row chessboard'>
-	  <!-- drop down chess board start -->	  
-	  <div class='col-lg-4 odd-square lesson-square'>
-	    iOS Development
-	  </div>
-	  <div class='col-lg-4 even-square lesson-square'>
-	    System Administration
-	  </div>
-	  <div class='col-lg-4 odd-square lesson-square'>
-	    App Design
-	  </div>
-	  <div class='col-lg-4 even-square lesson-square'>
-	    System Administration
-	  </div>
-	  <div class='col-lg-4 odd-square lesson-square'>
-	    App Design
-	  </div>
-	  <div class='col-lg-4 even-square lesson-square'>
-	    System Administration
-	  </div>
-	</div>
-	<!-- drop down chess board end -->	  
-      </div> <!-- main container -->      
+	  <!-- drop down details box -->
+	  <div class='drop-down-details' data-target-id="details-{{$org['id']}}">
+	    <div class='row your-pathways'>
+	      <div class='col-lg-12'>
+		Your pathways at {{ org['name'] }} 
+	      </div>
+	    </div>
+	    
+	    <div class='row chessboard'>
+	      <!-- drop down chess board start -->
+	      <div class='squares' ng-repeat='area in org["areas"]'>
+		<div class='col-lg-4 lesson-square' ng-class-even='"even-square"' ng-class-odd='"odd-square"'>
+		  {{ area }}
+		</div>
+	      </div>
+	    </div>
+	    <!-- drop down chess board end -->
+	  </div><!-- end of dropdown details -->
+	</div> <!-- main container for org -->
+      </div> <!-- ang repeater for all orgs
     </section>
 
     <!-- Bootstrap Core JavaScript -->

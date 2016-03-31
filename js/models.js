@@ -1,19 +1,8 @@
 window.max_dropdowns = 3;
 angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', function ($scope) {
-    $scope.dd_selections = [0, 0, 0];
-    $scope.dd_recs = [{
-	'id': 0,
-	'label': "I'm",
-	'options': ['cat', 'dog', 'pigeon']
-    }, {
-	'id': 1,
-	'label': "I want to be",
-	'options': ['superman', 'batman', 'xena']
-    }, {
-	'id': 2,
-	'label': "My goal is to",
-	'options': ['save world', 'be super', 'build car']
-    }];
+    $scope.dd_selections = [0, 0];
+    $scope.dd_recs = window.dd_choices;
+    $scope.orgs = window.orgs;
     
     $scope.dd_unselected = function(idx) {
 	// All options other than the idx'ed option
@@ -44,8 +33,9 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', function (
 	});
 	
 	$('.selection-dropdown').click(function(evt) {
+	    var tid;
 	    tid = $(evt.target).data('target-id');
-	    if(typeof(tid) == undefined) {
+	    if(typeof(tid) == 'undefined') {
 		tid = $(evt.target).closest('.selection-dropdown').data('target-id');
 	    }
 	    $('#search-dropdown-' + tid).toggle();
