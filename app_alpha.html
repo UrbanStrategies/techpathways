@@ -91,18 +91,19 @@
       <div class="container main-container">
 	<!-- form section -->
 	<div class='form-section'>
-          <div class="row" ng-repeat = 'dd_rec in dd_recs'>
+          <div class="row" ng-repeat = 'dd_rec in dd_recs' ng-init='filter_index=$index'>
             <div class="col-lg-4 col-lg-offset-1 text-lg-right text-tinted selection-label text-tinted">{{dd_rec['label']}}</div>
-	    <div class='col-lg-4 text-tinted selection-dropdown' data-target-id={{dd_rec['id']}}>{{dd_rec['options'][dd_selections[dd_rec['id']]]}}
+	    <div class='col-lg-4 text-tinted selection-dropdown' ng-click='toggle_boxes(filter_index)' data-target-id="{{dd_rec['id']}}">
+	      {{ dd_rec['options'][0] }}
 	      <i class='fa fa-angle-down selection-arrow'>
 	      </i>
 
-	      <div class=' search-selection' id={{'search-dropdown-'+dd_rec['id']}}>
+	      <div class=' search-selection' ng-show='!close_boxes[filter_index]' ng-hide='close_boxes[filter_index]'>
 		<div class='label-box'>
 		     Change to
 		</div>
-		<div data-rec-index={{dd_rec['id']}} class='option-box' ng-repeat='option in dd_unselected(dd_rec["id"])'>
-		  {{option}}
+		<div class='option-box' ng-repeat='option in dd_rec["options"][1]' >
+		  <span ng-click='select_option($event, filter_index, $index)'>{{ option === dd_rec["options"][0] ? "" : option }}</span>
 		</div>
 	      </div>
 	    </div>
