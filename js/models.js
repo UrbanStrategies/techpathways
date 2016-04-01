@@ -1,5 +1,5 @@
 window.max_dropdowns = 3;
-angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', function ($scope) {
+angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope', function ($scope) {
     $scope.dd_recs = window.dd_choices;
     $scope.orgs = window.orgs;
     $scope.close_boxes = [true, true];
@@ -24,5 +24,5 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', function (
 	});
 	return result;
     }       
-});
+}]);
 
