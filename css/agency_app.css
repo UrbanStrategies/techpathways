@@ -780,9 +780,9 @@ section#contact {
   left: 0;
   right: 0;
   bottom: 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat repeat;
+  background-position: top;
+
 }
 
 .brackets{

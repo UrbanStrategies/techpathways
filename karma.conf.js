@@ -14,6 +14,7 @@ module.exports = function(config) {
 	  'js/externals/angularjs/angular.js',
 	  'js/externals/angularjs/angular-route.js',
 	  './node_modules/angular-mocks/angular-mocks.js',
+	  'js/extracted_data.js',
 	  'js/data.js',
       'js/models.js',
       'test/*.mocha.js'
@@ -57,8 +58,11 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
-
+    browsers: ['PhantomJS2'],
+    phantomjsLauncher: {
+      // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
+      exitOnResourceError: true
+    },
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false

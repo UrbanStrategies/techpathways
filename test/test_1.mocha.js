@@ -13,6 +13,14 @@ describe('init test', function() {
     it('should have initial state', function(){
 	expect(scope.close_boxes.length).to.equal(2);
     });
+
+    it('should get activity matches', function() {
+	// Select the skill type
+	scope.dd_recs[1]['options'][0] = 'hardware';
+
+	// very tied in right now to the data...
+	expect(scope.filtered_orgs().length).to.equal(11);
+    });
 });
 
     

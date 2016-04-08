@@ -1,13 +1,13 @@
 require 'JSON'
 
 orgs=[]
-limit = 3
+limit = 300
 counter = 0
 
 def pad(l)
   if (l.size % 3) != 0
     (1..((3-l.size%3))).each do |i|
-      l.push ''
+      l.push rand(2000).to_s #''
     end
   end
 end
