@@ -5,6 +5,12 @@ window.activities = {
 	'visual design' : ['graphic.multimedia.design', 'animation.3d']
 };
 
+window.range_values = {
+    'Free' : ["Free"],
+    '$' : ['$', '$ - $$'],
+    '$$' : ['$$', '$$ - $$$']
+};
+
 window.dd_choices =[{
     'id': 0,
     'dropdown_type' : 'learner taxonomy',

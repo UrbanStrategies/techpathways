@@ -23,6 +23,7 @@ File.open(ARGV[0]).readlines.each do |l|
   h[:name] = fields[1].strip
   h[:description] = fields[3].strip
   h[:short_desc] = h[:description][0..45] + '...'
+  h[:price_range] = fields[14]
   
   h[:logo_link] = "img/#{h[:name].downcase.gsub(/\s+/, '_')}.png"
   

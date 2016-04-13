@@ -135,16 +135,19 @@
 	    </div>
 	  </div>
 
-	  <div class='col-lg-2 col-lg-offset-4 col-xs-12 '>
+	  <div class='col-lg-3 col-lg-offset-3 col-xs-12 '>
 	    <div class='col-xs-12 text-center'>
 	      Cost
 	    </div>
 	    
-	    <div class='col-xs-6  left-rounded selected-filter filter-box'>
+	    <div class='col-xs-4  left-rounded  filter-box' ng-class='price_set == "Free" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("Free", $event)'>
 	      Free
 	    </div>
-	    <div class='col-xs-6   filter-box'>
-	      Paid
+	    <div class='col-xs-4   filter-box' ng-class='price_set == "$" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("$", $event)'>
+	      $-$$
+	    </div>
+	    <div class='col-xs-4  right-rounded  filter-box' ng-class='price_set == "$$" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("$$", $event)'>
+	      $$$+
 	    </div>
 	  </div>
 	</div> <!-- table label-1 -->
@@ -174,10 +177,10 @@
 
 	    <div class='col-lg-6 col-lg-offset-1 col-xs-12  lesson-attributes'>
 	      <div class=' box-left'>
-		<span class='attribute-label'>Price</span> Free
+		<span class='attribute-label'>Price</span> {{ org['price_range'] }} 
 	      </div>
 	      <div class='box-right'>
-		<span class='attribute-label'>Skill Level</span> Beginner
+		<span class='attribute-label'></span> 
 	      </div>
 	    </div>
 	  

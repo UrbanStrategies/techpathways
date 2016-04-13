@@ -1,10 +1,19 @@
 angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope', function ($scope) {
     $scope.dd_recs = window.dd_choices;
     $scope.orgs = window.orgs;
+    $scope.range_values = window.range_values;
     $scope.close_boxes = [true, true];
     $scope.activities = window.activities;
+    $scope.price_ranges = [];
+    $scope.price_set = 'Free';
+    
+    $scope.setPriceRange = function(normalized_range) {
+	$scope.price_set = normalized_range;
+	$scope.price_ranges = $scope.range_values[normalized_range];
+    };
     
     $scope.filtered_orgs = function() {
+	// Filter by skill taxonomy and also by price range if range is set
         var skill_rec, f_orgs;
         
         skill_rec = $scope.dd_recs.filter(function(elt, idx) {
@@ -34,6 +43,14 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
             return matches;
         });
         
+	// If price is chosen (TODO What's the default?) use that as an add'l filter
+
+	if($scope.price_ranges.length != 0) {
+	    f_orgs = f_orgs.filter(function(elt, idx) {
+		return $scope.price_ranges.indexOf(elt['price_range']) != -1
+	    });
+	}
+	
         return f_orgs;
     }
         
