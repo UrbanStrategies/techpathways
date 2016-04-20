@@ -1,5 +1,6 @@
 /* navy blue:   color: #26323D; */
 /* dark blue: #0A80FF; */
+/* dark gray for bold text: #999; */
 
 @media (min-width: 768px) {
   .text-lg-right {
@@ -11,6 +12,12 @@
   .container.main-container {
     width: 90%;
   }
+}
+a.org-name-link, a.org-name-link:hover, a.org-name-link:visited {
+					  color: white;
+					}
+a.org-name-link {
+  text-decoration: underline;
 }
 
 .navbar-fixed-top {
@@ -108,7 +115,7 @@
   padding-top: 20px;
 }
 
-.org-box .attribute-label {
+.attribute-label {
   color: #999;
   font-weight: bold;
 }
@@ -142,7 +149,35 @@
 }
 .drop-down-details {
   display: none;
-  margin-bottom: 5px;  
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.course-modal {
+  position: absolute;
+  width: 75%;
+  top: -50px;
+  left: 12.5%;
+  height: 400px;
+
+  border-radius: 5px;
+  border: solid 1px #999;
+  background-color: #FFF;
+  display: none;
+  z-index: 10;
+  vertical-align: middle;
+}
+
+.course-modal .description-box {
+  margin-top: 10px;
+}
+
+.course-modal .details-box {
+  font-size: 0.65em;
+  margin-top: 5px;
+}
+.course-modal .modal-close {
+  cursor: pointer;
 }
 
 .chessboard {
@@ -179,26 +214,6 @@
   background-color: #EDF4F7;
 }
 
-.course-modal {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #0A80FF;
-  display: none;
-  z-index: 10;
-  vertical-align: middle;
-}
-
-.course-modal .description-box {
-  height: 50%;
-  width: 50%;
-  margin: 25% auto;
-  border-radius: 8px;
-  background-color: white;
-}
-
 .search-selection {
   background-color: white;
   color: #0A80FF;
@@ -224,4 +239,12 @@
 .search-selection .option-box {
   padding: 0px 10px 5px;
   font-size: 0.6em;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.float-right {
+  float: right;
 }

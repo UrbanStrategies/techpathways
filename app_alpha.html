@@ -69,10 +69,6 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <div class='course-modal'>
-      <div class='description-box'>
-      </div>
-    </div>
     <section id="contact" class='app-contact'>
       <div id="dotgenerator">
         <div class="brackets"></div>
@@ -189,14 +185,45 @@
 	  </div> <!-- org box -->
 
 	  <!-- drop down details box -->
-	  <div class='drop-down-details' data-target-id="details-{{$org['id']}}">
+	  <div class='drop-down-details' data-target-id="details-{{org['id']}}">
 	    <div class='row your-pathways'>
 	      <div class='col-lg-12'>
-		Your pathways at {{ org['name'] }} 
+		Your pathways at <a class='org-name-link' href='' onclick='return false;'>{{ org['name'] }}</a>
 	      </div>
 	    </div>
 	    
 	    <div class='row chessboard'>
+	      <div class='course-modal'>
+		<div class='modal-close float-right' style='padding-right: 5px;'>
+		  <i class='fa fa-times-circle-o'>
+		  </i>
+		</div>
+		
+		<div class='row description-box'>
+		  <div class='col-xs-6 col-xs-offset-3 attribute-label align-center'>
+		    {{ org['name'] }}
+		  </div>
+		</div>
+
+		<div class='row details-box'>
+		  <div class='col-xs-offset-1 col-xs-2 attribute-label'>
+		    Mission
+		  </div>
+		  <div class='col-xs-9'>
+		    {{ org['description'] }}
+		  </div>
+		</div>
+		<div class='row details-box'>		
+		  <div class='col-xs-offset-1 col-xs-2 attribute-label'>
+		    Training Offered
+		  </div>
+		  <div class='col-xs-9'>
+		    {{ org['areas'].join(', ') }}
+		  </div>
+		</div>
+		    
+	      </div>
+	      
 	      <!-- drop down chess board start -->
 	      <div class='squares' ng-repeat='area in org["areas"]'>
 		<div class='col-lg-4 lesson-square' ng-class-even='"even-square"' ng-class-odd='"odd-square"'>
