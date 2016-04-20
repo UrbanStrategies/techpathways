@@ -7,5 +7,11 @@ $(document).ready(function() {
 	if(evt.keyCode == 27) {
 	    $('.course-modal').css('display', 'none');
 	}
-    });	    
+    });
+
+    // Open the dropdown details box
+
+    $('.org-list .org-box').click(function(evt, target) {
+	$(evt.target).closest('.org-list').find('.drop-down-details').toggle();
+    });
 });

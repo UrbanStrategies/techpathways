@@ -100,6 +100,11 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
             }
         });
         return result;
-    }       
+    }
+
+    $scope.empty_area = function(str) {
+	return str.match(/\d+/)===null;
+    };
+    
 }]);
 

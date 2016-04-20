@@ -147,7 +147,7 @@
 	</div> <!-- table label-1 -->
 
 	<div class='org-list' ng-repeat='org in filtered_orgs()'>
-	  <div id='{{"org-box-" + $org["id"]}}' class='row org-box'>
+	  <div id='{{"org-box-" + org["id"]}}' class='row org-box'>
 	    <div class='col-lg-1 col-xs-2 org-icon'>
 	      <img ng-src="{{org['logo_link']}}" class='img-responsive'>
 	    </div>
@@ -200,7 +200,7 @@
 	      <!-- drop down chess board start -->
 	      <div class='squares' ng-repeat='area in org["areas"]'>
 		<div class='col-lg-4 lesson-square' ng-class-even='"even-square"' ng-class-odd='"odd-square"'>
-		  {{ area }}
+		  {{ empty_area(area) ? area :  '' }}
 		</div>
 	      </div>
 	    </div>

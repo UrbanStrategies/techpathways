@@ -92,6 +92,7 @@
   z-index: 2;
   position: relative;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 .org-box .org-icon {
   padding-top: 20px;
@@ -141,7 +142,7 @@
 }
 .drop-down-details {
   display: none;
-  margin-bottom: 5px;
+  margin-bottom: 5px;  
 }
 
 .chessboard {
