@@ -1,6 +1,15 @@
 angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope', function ($scope) {
     $scope.dd_recs = window.dd_choices;
     $scope.orgs = window.orgs;
+
+    // Convert the shown age label to the internal age label
+    $scope.normalized_age = {
+	"a child" : "Children",
+	"a youth" : "Youth",
+	"an adult" : "Adults"
+    };
+    
+    $scope.age_set = 'Children'
     $scope.range_values = window.range_values;
     $scope.close_boxes = [true, true];
     $scope.activities = window.activities;
@@ -11,14 +20,22 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
 	$scope.price_set = normalized_range;
 	$scope.price_ranges = $scope.range_values[normalized_range];
     };
+    $scope.setAge = function(shown_label) {
+	$scope.age_set = $scope.normalized_age[shown_label];
+    };
     
     $scope.filtered_orgs = function() {
 	// Filter by skill taxonomy and also by price range if range is set
-        var skill_rec, f_orgs;
+        var skill_rec, f_orgs, age_range;
+
         
         skill_rec = $scope.dd_recs.filter(function(elt, idx) {
             return elt['dropdown_type'] == 'skill taxonomy';
         });
+        shown_label = $scope.dd_recs.filter(function(elt, idx) {
+            return elt['dropdown_type'] == 'learner taxonomy';
+        });
+	$scope.setAge(shown_label[0]['options'][0]);
 
         // Which skill is selected in the dropdown currently
         skill_rec = skill_rec[0].options[0];
@@ -42,15 +59,25 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
             }
             return matches;
         });
-        
+
 	// If price is chosen (TODO What's the default?) use that as an add'l filter
+	// note: price in the data is single choice
 
 	if($scope.price_ranges.length != 0) {
 	    f_orgs = f_orgs.filter(function(elt, idx) {
 		return $scope.price_ranges.indexOf(elt['price_range']) != -1
 	    });
 	}
+
+	// If age is chosen (TODO What's the default?) use that as an add'l filter
+	// note: age in the data is multiple choice
 	
+	if(typeof $scope.age_set != 'undefined') {
+	    f_orgs = f_orgs.filter(function(elt, idx) {
+		return elt['age_range'].indexOf($scope.age_set) != -1
+	    });
+	}
+
         return f_orgs;
     }
         
@@ -73,6 +100,11 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
             }
         });
         return result;
-    }       
+    }
+
+    $scope.empty_area = function(str) {
+	return str.match(/\d+/)===null;
+    };
+    
 }]);
 

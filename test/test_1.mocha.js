@@ -19,7 +19,16 @@ describe('init test', function() {
 	scope.dd_recs[1]['options'][0] = 'hardware';
 
 	// very tied in right now to the data...
-	expect(scope.filtered_orgs().length).to.equal(11);
+	expect(scope.filtered_orgs().length).to.equal(3);
+    });
+
+    it('should get learner matches', function() {
+	// Select the skill type
+	scope.dd_recs[0]['options'][0] = 'an adult';
+	scope.dd_recs[1]['options'][0] = 'software';
+
+	// very tied in right now to the data...
+	expect(scope.filtered_orgs().length).to.equal(22);
     });
 });
 
