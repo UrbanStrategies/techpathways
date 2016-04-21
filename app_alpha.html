@@ -82,7 +82,7 @@
             <div class="col-lg-4 col-lg-offset-1 text-lg-right text-tinted selection-label text-tinted">
 	      {{dd_rec['label']}}
 	    </div>
-	    <div class='col-lg-4 text-tinted selection-dropdown' ng-click='toggle_boxes(filter_index)'
+	    <div class='col-lg-4 text-tinted selection-dropdown' id='dd-{{ dd_rec["id"] }}' ng-click='toggle_boxes(filter_index)'
 		 data-target-id="{{dd_rec['id']}}">
 	      {{ dd_rec['options'][0] }}
 	      <i class='fa fa-angle-down selection-arrow'>
@@ -93,7 +93,7 @@
 		     Change to
 		</div>
 		<div class='option-box' ng-repeat='option in dd_rec["options"][1]' >
-		  <span ng-click='select_option($event, filter_index, $index)'>
+		  <span id='dd-choice-{{dd_rec["id"]}}-{{$index}}' ng-click='select_option($event, filter_index, $index)'>
 		    {{ option === dd_rec["options"][0] ? "" : option }}
 		  </span>
 		</div>
@@ -113,11 +113,11 @@
 		Learning
 	      </div>
 	      
-	      <div class='col-xs-4  left-rounded selected-filter filter-box' ng-class='age_set == "Youth" ? "filter-active" : "filter-unset"' ng-click='setAge("Youth", $event)'>
+	      <div class='col-xs-4   selected-filter filter-box' ng-class='age_set == "Youth" ? "filter-active" : "filter-unset"' ng-click='setAge("Youth", $event)'>
 		Job Interviews
 	      </div>
 
-	      <div class='col-xs-4  left-rounded selected-filter filter-box' ng-class='age_set == "Adults" ? "filter-active" : "filter-unset"' ng-click='setAge("Adults", $event)'>
+	      <div class='col-xs-4  right-rounded selected-filter filter-box' ng-class='age_set == "Adults" ? "filter-active" : "filter-unset"' ng-click='setAge("Adults", $event)'>
 		Career Adv.
 	      </div>
 	    </div>
@@ -130,20 +130,20 @@
 	      Cost
 	    </div>
 	    
-	    <div class='col-xs-4  left-rounded  filter-box' ng-class='price_set == "Free" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("Free", $event)'>
+	    <div class='col-xs-4  left-rounded  filter-box' id='price-free' ng-class='price_set == "Free" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("Free", $event)'>
 	      Free
 	    </div>
-	    <div class='col-xs-4   filter-box' ng-class='price_set == "$" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("$", $event)'>
+	    <div id='price-2-d' class='col-xs-4   filter-box' ng-class='price_set == "$" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("$", $event)'>
 	      $-$$
 	    </div>
-	    <div class='col-xs-4  right-rounded  filter-box' ng-class='price_set == "$$" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("$$", $event)'>
+	    <div id='price-3-d' class='col-xs-4  right-rounded  filter-box' ng-class='price_set == "$$" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("$$", $event)'>
 	      $$$+
 	    </div>
 	  </div>
 	</div> <!-- table label-1 -->
 
-	<div class='org-list' ng-repeat='org in filtered_orgs()'>
-	  <div id='{{"org-box-" + org["id"]}}' class='row org-box'>
+	<div class='org-list' ng-repeat='org in orgs'>
+	  <div id='{{"org-box-" + org["id"]}}' ng-show='matches_filter(org)' class='row org-box'>
 	    <div class='col-lg-1 col-xs-2 org-icon'>
 	      <img ng-src="{{org['logo_link']}}" class='img-responsive'>
 	    </div>

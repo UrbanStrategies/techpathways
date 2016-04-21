@@ -13,7 +13,7 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     $scope.range_values = window.range_values;
     $scope.close_boxes = [true, true];
     $scope.activities = window.activities;
-    $scope.price_ranges = [];
+    $scope.price_ranges = ["Free"];
     $scope.price_set = 'Free';
     
     $scope.setPriceRange = function(normalized_range) {
@@ -24,7 +24,7 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
 	$scope.age_set = $scope.normalized_age[shown_label];
     };
     
-    $scope.filtered_orgs = function() {
+    $scope.matches_filter = function(org) {
 	// Filter by skill taxonomy and also by price range if range is set
         var skill_rec, f_orgs, age_range;
 
@@ -40,48 +40,46 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
         // Which skill is selected in the dropdown currently
         skill_rec = skill_rec[0].options[0];
         
-        f_orgs = $scope.orgs.filter(function(elt, idx) {
-            // for each org ...
-            var matches = false;
-	    var idx1, normalized_area, area;
-            for (idx1 in elt['areas']) {
-                area = elt['areas'][idx1];
+        var matches = false;
+	var idx1, normalized_area, area;
+        for (idx1 in org['areas']) {
+            area = org['areas'][idx1];
                 
-                // ... check if any of its areas match the chosen skill.
-
-                // normalized by removing all nonspace and non-alpha; reduce all spaces to single space;
-                // replace space with period
-                normalized_area = area.toLowerCase().replace(/[^a-z\s]/g, '');
-                normalized_area = normalized_area.replace(/\s+/g, ' ');
-                normalized_area = normalized_area.replace(/\s/g, '.');
-
-                matches = matches || ($scope.activities[skill_rec].indexOf(normalized_area) != -1);
-            }
-            return matches;
-        });
+            // ... check if any of its areas match the chosen skill.
+            // normalized by removing all nonspace and non-alpha; reduce all spaces to single space;
+            // replace space with period
+            normalized_area = area.toLowerCase().replace(/[^a-z\s]/g, '');
+            normalized_area = normalized_area.replace(/\s+/g, ' ');
+            normalized_area = normalized_area.replace(/\s/g, '.');
+	    
+            matches = matches || ($scope.activities[skill_rec].indexOf(normalized_area) != -1);
+        }
 
 	// If price is chosen (TODO What's the default?) use that as an add'l filter
 	// note: price in the data is single choice
 
 	if($scope.price_ranges.length != 0) {
-	    f_orgs = f_orgs.filter(function(elt, idx) {
-		return $scope.price_ranges.indexOf(elt['price_range']) != -1
-	    });
+	    matches = matches && $scope.price_ranges.indexOf(org['price_range']) != -1
 	}
 
 	// If age is chosen (TODO What's the default?) use that as an add'l filter
 	// note: age in the data is multiple choice
 	
 	if(typeof $scope.age_set != 'undefined') {
-	    f_orgs = f_orgs.filter(function(elt, idx) {
-		return elt['age_range'].indexOf($scope.age_set) != -1
-	    });
+	    matches = matches && org['age_range'].indexOf($scope.age_set) != -1
 	}
-
-        return f_orgs;
+	
+        return matches;
     }
         
     $scope.toggle_boxes = function(f_idx) {
+	// Make sure to close all other boxes
+	$scope.close_boxes.forEach(function(elt, idx) {
+	    if (idx != f_idx) {
+		$scope.close_boxes[idx] = true
+	    }
+	});
+	
         $scope.close_boxes[f_idx] = !($scope.close_boxes[f_idx]);
     }
     
