@@ -19,7 +19,7 @@ class DataProducer
   def pad(l)
     if (l.size % 3) != 0
       (1..((3-l.size%3))).each do |i|
-        l.push rand(2000).to_s #''
+        l.push '   ' #rand(2000).to_s #''
       end
     end
   end
@@ -45,7 +45,7 @@ class DataProducer
       collate :skills, h[:skill_level]
       collate :ages, h[:age_range]
       
-      h[:logo_link] = "img/#{h[:name].downcase.gsub(/\s+/, '_')}.png"
+      h[:logo_link] = "img/logos/#{h[:name].downcase.gsub(/[\s\-\!\(\)\.]/, '_')}.png"
   
       h[:areas] = fields[5].split(/\s*,\s*/)
       collate :areas, h[:areas]

@@ -10,6 +10,7 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     };
     
     $scope.age_set = 'Children'
+    $scope.skill_level_set = 'Learning'
     $scope.range_values = window.range_values;
     $scope.close_boxes = [true, true];
     $scope.activities = window.activities;
@@ -17,11 +18,15 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     $scope.price_set = 'Free';
     
     $scope.setPriceRange = function(normalized_range) {
+	$('.drop-down-details').hide();
 	$scope.price_set = normalized_range;
 	$scope.price_ranges = $scope.range_values[normalized_range];
     };
     $scope.setAge = function(shown_label) {
 	$scope.age_set = $scope.normalized_age[shown_label];
+    };
+
+    $scope.setSkillLevel = function() {
     };
     
     $scope.matches_filter = function(org) {
@@ -84,6 +89,8 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     }
     
     $scope.select_option = function($event, f_idx, c_idx) {
+	$('.drop-down-details').hide();
+	
         // All options other than the idx'ed option
         $scope.dd_recs[f_idx].options[0] = $scope.dd_recs[f_idx].options[1][c_idx];
         $scope.close_boxes[f_idx] = true;
@@ -100,8 +107,8 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
         return result;
     }
 
-    $scope.empty_area = function(str) {
-	return str.match(/\d+/)===null;
+    $scope.true_area = function(str) {
+	return str.match(/\s\s\s\s/)===null;
     };
     
 }]);

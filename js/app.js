@@ -1,6 +1,16 @@
 $(document).ready(function() {
     $('.org-name-link').click(function(evt, target) {
-	$(evt.target).closest('.drop-down-details').find('.course-modal').toggle();
+	elt = $(evt.target).closest('.drop-down-details').find('.course-modal')
+	isVisible = elt.is(':visible');
+	// hide everything
+	$('.course-modal').hide();
+
+	// now explicitly set the state of the target modal
+	if(isVisible) {
+	    elt.hide();
+	} else {
+	    elt.show();
+	}
     });
 
     $('body').keyup(function(evt) {
@@ -13,9 +23,16 @@ $(document).ready(function() {
 
     $('.org-list .org-box').click(function(evt, target) {
 	dd = $(evt.target).closest('.org-list').find('.drop-down-details')
-	dd.toggle();
-	if(dd.style('display') == 'none') {
-	    $('.course-modal').hide();
+	isVisible = dd.is(':visible');
+	
+	$('.drop-down-details').hide();
+	$('.course-modal').hide();
+	
+	// now explicitly set the state of the target modal
+	if(isVisible) {
+	    dd.hide();
+	} else {
+	    dd.show();
 	}
     });
 

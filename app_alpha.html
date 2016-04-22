@@ -109,15 +109,15 @@
 	      Prepare For
 	    </div>
 	    <div class='filter-set'>
-	      <div class='col-xs-4  left-rounded selected-filter filter-box' ng-class='age_set == "Children" ? "filter-active" : "filter-unset"' ng-click='setAge("Children", $event)'>
+	      <div class='col-xs-4  left-rounded selected-filter filter-box' ng-class='skill_level_set == "Learning" ? "filter-active" : "filter-unset"' ng-click='setSkillLevel("Learning", $event)'>
 		Learning
 	      </div>
 	      
-	      <div class='col-xs-4   selected-filter filter-box' ng-class='age_set == "Youth" ? "filter-active" : "filter-unset"' ng-click='setAge("Youth", $event)'>
+	      <div class='col-xs-4   selected-filter filter-box' ng-class='skill_level_set == "Job Interviews" ? "filter-active" : "filter-unset"' ng-click='setSkillLevel("Job Interviews", $event)'>
 		Job Interviews
 	      </div>
 
-	      <div class='col-xs-4  right-rounded selected-filter filter-box' ng-class='age_set == "Adults" ? "filter-active" : "filter-unset"' ng-click='setAge("Adults", $event)'>
+	      <div class='col-xs-4  right-rounded selected-filter filter-box' ng-class='skill_level_set == "Career Adv." ? "filter-active" : "filter-unset"' ng-click='setSkillLevel("Career Adv.", $event)'>
 		Career Adv.
 	      </div>
 	    </div>
@@ -225,9 +225,9 @@
 	      </div>
 	      
 	      <!-- drop down chess board start -->
-	      <div class='squares' ng-repeat='area in org["areas"]'>
+	      <div class='squares' ng-repeat='area in org["areas"] track by $index'>
 		<div class='col-lg-4 lesson-square' ng-class-even='"even-square"' ng-class-odd='"odd-square"'>
-		  {{ empty_area(area) ? area :  '' }}
+		  {{ true_area(area) ? area :  '    ' }}
 		</div>
 	      </div>
 	    </div>
