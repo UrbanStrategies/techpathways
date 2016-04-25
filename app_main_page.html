@@ -54,13 +54,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Students</a>
+                        <a class="page-scroll" href="/">Students</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#team">Job Profiles</a>
+                        <a class="page-scroll" href="/app_job_profiles.html">Job Profiles</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/">About</a>
+                        <a class="page-scroll" href="http://techpathways.org/">About</a>
                     </li>
                 </ul>
             </div>
@@ -79,22 +79,22 @@
 	<!-- form section -->
 	<div class='form-section'>
           <div class="row" ng-repeat = 'dd_rec in dd_recs' ng-init='filter_index=$index'>
-            <div class="col-lg-4 col-lg-offset-1 text-lg-right text-tinted selection-label text-tinted">
+            <div class="col-lg-4 col-lg-offset-1 text-lg-right text-tinted selection-label text-tinted" ng-cloak>
 	      {{dd_rec['label']}}
 	    </div>
-	    <div class='col-lg-4 text-tinted selection-dropdown' id='dd-{{ dd_rec["id"] }}' ng-click='toggle_boxes(filter_index)'
-		 data-target-id="{{dd_rec['id']}}">
+	    <div class='col-lg-4 top-dropdown-chooser' ng-class='getFilterChooserClass(filter_index)' id='dd-{{ dd_rec["id"] }}' ng-click='toggle_boxes(filter_index)'
+		 data-target-id="{{dd_rec['id']}}" ng-cloak>
 	      {{ dd_rec['options'][0] }}
 	      <i class='fa fa-angle-down selection-arrow'>
 	      </i>
 
 	      <div class=' search-selection' ng-show='!close_boxes[filter_index]' ng-hide='close_boxes[filter_index]'>
 		<div class='label-box'>
-		     Change to
+
 		</div>
 		<div class='option-box' ng-repeat='option in dd_rec["options"][1]' >
-		  <span id='dd-choice-{{dd_rec["id"]}}-{{$index}}' ng-click='select_option($event, filter_index, $index)'>
-		    {{ option === dd_rec["options"][0] ? "" : option }}
+		  <span id='dd-choice-{{dd_rec["id"]}}-{{$index}}' ng-click='select_option($event, filter_index, $index)' ng-class='getTopFilterClass($index, dd_rec)'>
+		    {{ dd_rec['options'][0] == option ? '' : option }}
 		  </span>
 		</div>
 	      </div>
@@ -142,7 +142,7 @@
 	  </div>
 	</div> <!-- table label-1 -->
 
-	<div class='org-list' ng-repeat='org in orgs'>
+	<div class='org-list' ng-repeat='org in orgs' ng-cloak>
 	  <div id='{{"org-box-" + org["id"]}}' ng-show='matches_filter(org)' class='row org-box'>
 	    <div class='col-lg-1 col-xs-2 org-icon'>
 	      <img ng-src="{{org['logo_link']}}" class='img-responsive'>

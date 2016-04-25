@@ -16,6 +16,14 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     $scope.activities = window.activities;
     $scope.price_ranges = ["Free"];
     $scope.price_set = 'Free';
+
+    $scope.getTopFilterClass = function(idx, rec) {
+	if (rec['options'][0] === rec['options'][1][idx]) {
+	    return 'top-filter-unset';
+	} else {
+	    return 'top-filter-active';
+	}
+    };
     
     $scope.setPriceRange = function(normalized_range) {
 	$('.drop-down-details').hide();
@@ -81,12 +89,20 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
 	// Make sure to close all other boxes
 	$scope.close_boxes.forEach(function(elt, idx) {
 	    if (idx != f_idx) {
-		$scope.close_boxes[idx] = true
+		$scope.close_boxes[idx] = true;
 	    }
 	});
 	
         $scope.close_boxes[f_idx] = !($scope.close_boxes[f_idx]);
     }
+
+    $scope.getFilterChooserClass = function(idx) {
+	if ($scope.close_boxes[idx]) {
+	    return '';
+	} else {
+	    return 'chosen';
+	}
+    };
     
     $scope.select_option = function($event, f_idx, c_idx) {
 	$('.drop-down-details').hide();

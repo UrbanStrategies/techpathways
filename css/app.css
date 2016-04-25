@@ -1,4 +1,4 @@
-/* navy blue:   color: #26323D; */
+/* navy blue or it looks like light gray to me:   color: #26323D; */
 /* dark blue: #0A80FF; */
 /* dark gray for bold text: #999; */
 
@@ -36,22 +36,27 @@ a.org-name-link {
   font-size: 2.5em;
   position: relative;
 }
-.form-section .selection-dropdown {
+.form-section .top-dropdown-chooser {
   font-size: 0.6em;
+  cursor: pointer;
 }
 
 .container.main-container .form-section:first-child {
   padding-top: 50px;
 }
 
-.form-section .selection-dropdown {
+.form-section .top-dropdown-chooser {
   border-bottom: solid 1px #92D0FF;
   position: relative;
   color: white;
   padding: 5px 5px 5px 15px;
-  cursor: pointer;
 }
-.form-section .selection-arrow {
+.form-section .top-dropdown-chooser.chosen {
+  color: #0A80FF;
+  background-color: white;
+}
+
+.top-dropdown-chooser .selection-arrow {
   float: right;
   line-height: 150%;
 }
@@ -216,13 +221,21 @@ a.org-name-link {
 
 .search-selection {
   background-color: white;
-  color: #0A80FF;
   position: absolute;
-  left: 102%;
-  top: 31%;
-  width: 75%;
+  left: 0px;
+  top: 57px;
+  width: 100%;
   z-index: 10;
 }
+.search-selection .top-filter-active {
+  color: #0A80FF;
+  cursor: pointer;
+}
+.search-selection .top-filter-unset {
+  color: #26323D;
+  cursor: text;
+}
+
 .search-selection .label-box {
   font-size: 0.3em;
   color: #26323D;
@@ -237,8 +250,7 @@ a.org-name-link {
 }
 
 .search-selection .option-box {
-  padding: 0px 10px 5px;
-  font-size: 0.6em;
+  padding: 0px 10px 5px 15px;
 }
 
 .align-center {

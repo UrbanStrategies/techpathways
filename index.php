@@ -1,1 +1,1 @@
-<?php include_once("app_alpha.html"); ?>
+<?php include_once("app_main_page.html"); ?>
