@@ -82,7 +82,7 @@
 	    <div class='col-xs-12 text-center'>
 	      Job Profiles For
 	    </div>
-	    <div class='filter-set' ng-repeat='group_name in profile_groups[1]'>
+	    <div class='filter-set' ng-repeat='group_name in profile_groups[1]' ng-cloak>
 	      <div class='col-xs-3 selected-filter filter-box' ng-class='getFilterDisplay($index, profile_groups)' ng-click='setCurrentProfileGroup($index)'>
 		{{ group_name }}
 	      </div>

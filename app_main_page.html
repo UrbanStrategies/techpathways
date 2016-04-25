@@ -142,99 +142,77 @@
 	  </div>
 	</div> <!-- table label-1 -->
 
-	<div class='org-list' ng-repeat='org in orgs' ng-cloak>
-	  <div id='{{"org-box-" + org["id"]}}' ng-show='matches_filter(org)' class='row org-box'>
-	    <div class='col-lg-1 col-xs-2 org-icon'>
-	      <img ng-src="{{org['logo_link']}}" class='img-responsive'>
-	    </div>
+	<div class='row org-list'>
+	  <div class='col-xs-12'>
+	    <div class='row org-result-box' ng-show='matches_filter(org)' ng-repeat='org in orgs' ng-cloak>
+	      <div id='{{"org-box-" + org["id"]}}' class='col-xs-12 org-box'>
+		<div class='row'>
+		  <div class='col-lg-1 col-xs-2 org-icon'>
+		    <img ng-src="{{org['logo_link']}}" class='img-responsive'>
+		  </div>
 
-	    <div class='col-lg-6 col-xs-10'>
-	      <div class='org-logo'>
-		{{ org['name'] }}
-	      </div>
-	      <div class=' org-description'>
-		{{ org['short_desc'] }}
-	      </div>
-	    </div>
+		  <div class='col-lg-6 col-xs-10'>
+		    <div class='org-logo'>
+		      {{ org['name'] }}
+		    </div>
+		    <div class=' org-description'>
+		      {{ org['short_desc'] }}
+		    </div>
+		  </div>
 
-	    <div class='col-lg-5 col-xs-12'>
-	      <div class='org-logo'>
-	      </div>
-	      <div class=' org-description'>
-		<span class='attribute-label'>Training Includes </span>{{ org['short_training'] }}
-	      </div>
-	    </div>
-
-	    <div class='col-lg-6 col-lg-offset-1 col-xs-12  lesson-attributes'>
-	      <div class=' box-left'>
-		<span class='attribute-label'>Price</span> {{ org['price_range'] }} 
-	      </div>
-	      <div class=' box-left not-first'>
-		<span class='attribute-label'>Caters to</span> {{ org['age_range'].join(', ') }} 
-	      </div>
-	      <div class='box-right'>
-		<span class='attribute-label'></span> 
-	      </div>
-	    </div>
-	  
-	    <div class=' col-lg-5 col-xs-12 lesson-attributes'>
-	      <div class='box-left'>
-		<span class='attribute-label'>Location</span> Oakland
-	      </div>
-	    </div>
-	  </div> <!-- org box -->
-
-	  <!-- drop down details box -->
-	  <div class='drop-down-details' data-target-id="details-{{org['id']}}">
-	    <div class='row your-pathways'>
-	      <div class='col-lg-12'>
-		Your pathways at <a class='org-name-link' href='' onclick='return false;'>{{ org['name'] }}</a>
-	      </div>
-	    </div>
-	    
-	    <div class='row chessboard'>
-	      <div class='course-modal'>
-		<div class='modal-close float-right' style='padding-right: 5px;'>
-		  <i class='fa fa-times-circle-o'>
-		  </i>
+		  <div class='col-lg-5 col-xs-12'>
+		    <div class='org-logo'>
+		    </div>
+		    <div class=' org-description'>
+		      <span class='attribute-label'>Training Includes </span>{{ org['short_training'] }}
+		    </div>
+		  </div>
 		</div>
 		
-		<div class='row description-box'>
-		  <div class='col-xs-6 col-xs-offset-3 attribute-label align-center'>
-		    {{ org['name'] }}
+		<div class='row'>		  
+		  <div class='col-lg-6 col-lg-offset-1 col-xs-12  lesson-attributes'>
+		    <div class=' box-left'>
+		      <span class='attribute-label'>Price</span> {{ org['price_range'] }} 
+		    </div>
+		    <div class=' box-left not-first'>
+		      <span class='attribute-label'>Caters to</span> {{ org['age_range'].join(', ') }} 
+		    </div>
+		    <div class='box-right'>
+		      <span class='attribute-label'></span> 
+		    </div>
+		  </div>
+		
+		  <div class=' col-lg-5 col-xs-12 lesson-attributes'>
+		    <div class='box-right'>
+		      <span class='attribute-label negative'>Start Learning Here</span> 
+		    </div>
 		  </div>
 		</div>
-
+	      </div> <!-- org box summary row -->
+	  
+	      <!-- drop down details box -->
+	      <div class='col-xs-12 drop-down-details' data-target-id="details-{{org['id']}}">
 		<div class='row details-box'>
-		  <div class='col-xs-offset-1 col-xs-2 attribute-label'>
+		  <div class='col-xs-offset-1 col-xs-1 attribute-label'>
 		    Mission
 		  </div>
-		  <div class='col-xs-9'>
+		  <div class='col-xs-10'>
 		    {{ org['description'] }}
 		  </div>
 		</div>
-		<div class='row details-box'>		
-		  <div class='col-xs-offset-1 col-xs-2 attribute-label'>
-		    Training Offered
+
+		<div class='row checkerboard'> <!-- drop down chess board start -->
+		  <div class='squares' ng-repeat='area in org["areas"] track by $index'>
+		    <div class='col-lg-4 lesson-square' ng-class-even='"even-square"' ng-class-odd='"odd-square"'>
+		      {{ true_area(area) ? area :  '    ' }}
+		    </div>
 		  </div>
-		  <div class='col-xs-9'>
-		    {{ org['areas'].join(', ') }}
-		  </div>
-		</div>
-		    
-	      </div>
-	      
-	      <!-- drop down chess board start -->
-	      <div class='squares' ng-repeat='area in org["areas"] track by $index'>
-		<div class='col-lg-4 lesson-square' ng-class-even='"even-square"' ng-class-odd='"odd-square"'>
-		  {{ true_area(area) ? area :  '    ' }}
-		</div>
-	      </div>
-	    </div>
-	    <!-- drop down chess board end -->
-	  </div><!-- end of dropdown details -->
+		</div> <!-- drop down chess board end -->
+	      </div><!-- end of dropdown details -->
+	    </div> <!-- org box -->
+	  </div> <!-- org list -->
 	</div> <!-- main container for org -->
-      </div> <!-- ang repeater for all orgs
+      </div> <!-- ang repeater for all orgs -->
     </section>
 
     <!-- Bootstrap Core JavaScript -->

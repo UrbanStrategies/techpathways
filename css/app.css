@@ -41,6 +41,9 @@ a.org-name-link {
   cursor: pointer;
 }
 
+.container.main-container {
+  z-index: 2;
+}
 .container.main-container .form-section:first-child {
   padding-top: 50px;
 }
@@ -96,18 +99,24 @@ a.org-name-link {
   background-color: white;
 }
 
-.org-box {
-  background-color: white;
+.org-result-box {
   border-radius: 5px;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.org-box {
   color: #26323D;
   font-size: 16px;
-  z-index: 2;
   position: relative;
-  margin-bottom: 5px;
+
   cursor: pointer;
 }
 .org-box .org-icon {
   padding-top: 20px;
+}
+.org-box.unrolled {
+  margin-bottom: 0px;
 }
 
 .org-box .org-logo {
@@ -117,12 +126,18 @@ a.org-name-link {
 }
 
 .org-box .lesson-attributes {
-  padding-top: 20px;
+  padding: 20px 15px;
 }
 
 .attribute-label {
   color: #999;
   font-weight: bold;
+}
+.attribute-label.negative {
+  background-color: #999;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
 }
 
 .left-rounded {
@@ -134,6 +149,9 @@ a.org-name-link {
 
 .box-left {
   float: left;
+}
+.box-right {
+  float: right;
 }
 .box-left.not-first{ 
     padding-left: 20px;
@@ -153,9 +171,14 @@ a.org-name-link {
   line-height: 400%;
 }
 .drop-down-details {
-  display: none;
-  margin-bottom: 5px;
   position: relative;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s;
+}
+.drop-down-details.rolldown {
+  transition: max-height 0.2s;
+  max-height: 500px;
 }
 
 .course-modal {
@@ -177,9 +200,11 @@ a.org-name-link {
   margin-top: 10px;
 }
 
-.course-modal .details-box {
+.details-box {
   font-size: 0.65em;
-  margin-top: 5px;
+  padding: 30px 0 10px;
+  
+  background-color: white;
 }
 .course-modal .modal-close {
   cursor: pointer;

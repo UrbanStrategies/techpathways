@@ -21,18 +21,18 @@ $(document).ready(function() {
 
     // Open the dropdown details box
 
-    $('.org-list .org-box').click(function(evt, target) {
-	dd = $(evt.target).closest('.org-list').find('.drop-down-details')
-	isVisible = dd.is(':visible');
+    $('.org-result-box .org-box').click(function(evt, target) {
+	orgbox_parent = $(evt.target).closest('.org-box')
+	dd = $(evt.target).closest('.org-result-box').find('.drop-down-details')
 	
-	$('.drop-down-details').hide();
-	$('.course-modal').hide();
+	isVisible = dd.hasClass('rolldown');
+
+	// Unroll everything
+	$('.drop-down-details').removeClass('rolldown');
 	
-	// now explicitly set the state of the target modal
-	if(isVisible) {
-	    dd.hide();
-	} else {
-	    dd.show();
+	// now explicitly set the roll state of the dropdown
+	if(!isVisible) {
+	    dd.addClass('rolldown');
 	}
     });
 

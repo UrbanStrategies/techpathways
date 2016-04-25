@@ -1,16 +1,4 @@
-require 'capybara/dsl'
-require 'capybara-webkit'
-
-require 'capybara_minitest_spec'
-require "test/unit"
-
-Capybara.default_driver = :webkit
-
-Capybara::Webkit.configure do |config|
-  config.allow_unknown_urls
-end
-
-class Tester < Test::Unit::TestCase
+class DropdownsTest < Test::Unit::TestCase
   include Capybara::DSL
 
   def setup
