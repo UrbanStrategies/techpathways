@@ -5,7 +5,7 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     // Convert the shown age label to the internal age label
     $scope.normalized_age = {
 	"a child" : "Children",
-	"a youth" : "Youth",
+	"a youth" : "Teens",
 	"an adult" : "Adults"
     };
     
@@ -14,8 +14,8 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     $scope.range_values = window.range_values;
     $scope.close_boxes = [true, true];
     $scope.activities = window.activities;
-    $scope.price_ranges = ["Free"];
-    $scope.price_set = 'Free';
+    $scope.price_set = 'Any';
+    $scope.price_ranges = $scope.range_values[$scope.price_set];
 
     $scope.getTopFilterClass = function(idx, rec) {
 	if (rec['options'][0] === rec['options'][1][idx]) {
@@ -26,7 +26,7 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     };
     
     $scope.setPriceRange = function(normalized_range) {
-	$('.drop-down-details').hide();
+	$('.drop-down-details').removeClass('rolldown');
 	$scope.price_set = normalized_range;
 	$scope.price_ranges = $scope.range_values[normalized_range];
     };
@@ -105,7 +105,7 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     };
     
     $scope.select_option = function($event, f_idx, c_idx) {
-	$('.drop-down-details').hide();
+	$('.drop-down-details').removeClass('rolldown');
 	
         // All options other than the idx'ed option
         $scope.dd_recs[f_idx].options[0] = $scope.dd_recs[f_idx].options[1][c_idx];

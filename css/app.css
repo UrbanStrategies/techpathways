@@ -13,10 +13,15 @@
     width: 90%;
   }
 }
+
+a.external-link, a.external-link:hover, a.external-link:visited {
+					  color: #26323d;
+					}
+
 a.org-name-link, a.org-name-link:hover, a.org-name-link:visited {
 					  color: white;
 					}
-a.org-name-link {
+a.org-name-link,a.external-link {
   text-decoration: underline;
 }
 

@@ -6,6 +6,7 @@ class DataProducer
     @limit = 300
     @counter = 0
     @collations = {}
+    @short_length = 140
   end
   def collate(type, list)
     @collations[type] ||= []
@@ -36,11 +37,16 @@ class DataProducer
       h[:id] = @counter - 1
       h[:name] = fields[1].strip
       h[:description] = fields[3].strip
-      h[:short_desc] = h[:description][0..45] + '...'
+      h[:short_desc] = h[:description][0..@short_length] + '...'
 
       h[:skill_level] = fields[7].split(/\s*,\s*/)
       h[:age_range] = fields[11].split(/\s*,\s*/)
       h[:price_range] = fields[16]
+      h[:website] = fields[48]
+
+      if !(/^http/=~h[:website])
+        h[:website] = "http://#{h[:website]}"
+      end
 
       collate :skills, h[:skill_level]
       collate :ages, h[:age_range]
@@ -51,7 +57,7 @@ class DataProducer
       collate :areas, h[:areas]
       
       pad h[:areas]
-      h[:short_training] = h[:areas].join(', ')[0..45] + '...'
+      h[:short_training] = h[:areas].join(', ')[0..@short_length] + '...'
   
       @orgs.push h unless h[:id]==0
     end

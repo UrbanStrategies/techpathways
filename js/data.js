@@ -7,8 +7,8 @@ window.activities = {
 
 window.range_values = {
     'Free' : ["Free"],
-    '$' : ['$', '$ - $$'],
-    '$$' : ['$$', '$$ - $$$']
+    '$' : ['$', '$ - $$', '$$', '$$ - $$$'],
+    'Any' : ['Free', '$', '$ - $$', '$$', '$$ - $$$']
 };
 
 window.dd_choices =[{

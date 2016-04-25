@@ -92,8 +92,8 @@
 		<div class='label-box'>
 
 		</div>
-		<div class='option-box' ng-repeat='option in dd_rec["options"][1]' >
-		  <span id='dd-choice-{{dd_rec["id"]}}-{{$index}}' ng-click='select_option($event, filter_index, $index)' ng-class='getTopFilterClass($index, dd_rec)'>
+		<div class='option-box' ng-click='select_option($event, filter_index, $index)' ng-repeat='option in dd_rec["options"][1]' >
+		  <span id='dd-choice-{{dd_rec["id"]}}-{{$index}}' ng-class='getTopFilterClass($index, dd_rec)'>
 		    {{ dd_rec['options'][0] == option ? '' : option }}
 		  </span>
 		</div>
@@ -130,14 +130,14 @@
 	      Cost
 	    </div>
 	    
-	    <div class='col-xs-4  left-rounded  filter-box' id='price-free' ng-class='price_set == "Free" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("Free", $event)'>
+	    <div id='price-free' class='col-xs-4 left-rounded filter-box' ng-class='price_set == "Free" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("Free", $event)'>
 	      Free
 	    </div>
-	    <div id='price-2-d' class='col-xs-4   filter-box' ng-class='price_set == "$" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("$", $event)'>
-	      $-$$
+	    <div id='price-dollars' class='col-xs-4 filter-box' ng-class='price_set == "$" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("$", $event)'>
+	      $
 	    </div>
-	    <div id='price-3-d' class='col-xs-4  right-rounded  filter-box' ng-class='price_set == "$$" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("$$", $event)'>
-	      $$$+
+	    <div id='price-any' class='col-xs-4 right-rounded filter-box' ng-class='price_set == "Any" ? "filter-active" : "filter-unset"' ng-click='setPriceRange("Any", $event)'>
+	      Any
 	    </div>
 	  </div>
 	</div> <!-- table label-1 -->
@@ -198,6 +198,12 @@
 		  </div>
 		  <div class='col-xs-10'>
 		    {{ org['description'] }}
+		  </div>
+		  <div class='col-xs-offset-1 col-xs-1 attribute-label'>
+		    Website
+		  </div>
+		  <div class='col-xs-10'>
+		    <a class='external-link' href='{{org["website"] }}'>{{ org['website'] }}</a>
 		  </div>
 		</div>
 

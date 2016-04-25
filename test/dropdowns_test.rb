@@ -17,17 +17,17 @@ class DropdownsTest < Test::Unit::TestCase
   end
 
   def test_chessboard
-    assert page.has_css?('.org-box', visible: true, count: 7)
+    assert page.has_css?('.org-box', visible: true, count: 8)
     page.find('#dd-0').click
     page.find('#dd-choice-0-1').click
     page.find('#price-free').click
 
-    assert page.has_css?('.org-box', visible: true, count: 5)
+    assert page.has_css?('.org-box', visible: true, count: 9)
 
     # test the behavior that broke because I didn't implement Angular correctly
-    page.find('#price-2-d').click
-    page.find('#price-3-d').click
+    page.find('#price-dollars').click
+    page.find('#price-any').click
     page.find('#price-free').click
-    assert page.has_css?('.org-box', visible: true, count: 5)
+    assert page.has_css?('.org-box', visible: true, count: 9)
   end
 end

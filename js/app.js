@@ -1,18 +1,4 @@
 $(document).ready(function() {
-    $('.org-name-link').click(function(evt, target) {
-	elt = $(evt.target).closest('.drop-down-details').find('.course-modal')
-	isVisible = elt.is(':visible');
-	// hide everything
-	$('.course-modal').hide();
-
-	// now explicitly set the state of the target modal
-	if(isVisible) {
-	    elt.hide();
-	} else {
-	    elt.show();
-	}
-    });
-
     $('body').keyup(function(evt) {
 	if(evt.keyCode == 27) {
 	    $('.course-modal').css('display', 'none');
