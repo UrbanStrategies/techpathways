@@ -5,11 +5,11 @@ window.activities = {
 	'visual design' : ['graphic.multimedia.design', 'animation.3d']
 };
 
-window.range_values = {
-    'Free' : ["Free"],
-    '$' : ['$', '$ - $$', '$$', '$$ - $$$', '$$$$'],
-    'Any' : ['Free', '$', '$ - $$', '$$', '$$ - $$$', '$$$$', '$$$$$']
-};
+window.price_range_values = [2, [
+    {label: 'Free', normalized_list: ["Free"]},
+    {label: '$', normalized_list: ['$', '$ - $$', '$$', '$$ - $$$', '$$$$']},
+    {label: 'Show All', normalized_list: ['Free', '$', '$ - $$', '$$', '$$ - $$$', '$$$$', '$$$$$']}
+]];
 
 window.dd_choices =[{
     'id': 0,

@@ -28,8 +28,8 @@ class DropdownsTest < Test::Unit::TestCase
     assert page.has_css?('.org-box', visible: true, count: free_youth_number)
 
     # test the behavior that broke because I didn't implement Angular correctly
-    page.find('#price-dollars').click
-    page.find('#price-any').click
+    page.find('#price-dollar').click
+    page.find('#price-show-all').click
     page.find('#price-free').click
     assert page.has_css?('.org-box', visible: true, count: free_youth_number)
   end

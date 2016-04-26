@@ -14,11 +14,9 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     
     $scope.age_set = 'Children'
     $scope.skill_level_set = 'Learning'
-    $scope.range_values = window.range_values;
+    $scope.price_range_values = window.price_range_values;
     $scope.close_boxes = [true, true];
     $scope.activities = window.activities;
-    $scope.price_set = 'Any';
-    $scope.price_ranges = $scope.range_values[$scope.price_set];
 
     $scope.display_convert = function(key, input) {
 	if (key === 'price') {
@@ -30,6 +28,34 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     };
 	    
 
+    $scope.idify = function(type, idx) {
+	if(type === 'price') {
+	    str = $scope.price_range_values[1][idx]['label'].replace(/\s/, '-');
+	    str = str.replace(/\$/, 'dollar');
+	    return "price-" + str.toLowerCase();
+	} else {
+	    return 'an-id';
+	}
+    };
+    
+    // this might be something to DRY up the similar function that's in job_profiles_models.js
+    $scope.getPriceFilterClass = function(idx) {
+	str = '';
+	if (idx === 0) {
+	    str += ' left-rounded ';
+	}
+	if (idx === $scope.price_range_values[1].length - 1) {
+	    str += ' right-rounded ';
+	}
+
+	if ($scope.price_range_values[0] === idx) {
+	    str += 'filter-active';
+	} else {
+	    str += 'filter-unset';
+	}
+	return str;
+    };
+    
     $scope.getTopFilterClass = function(idx, rec) {
 	if (rec['options'][0] === rec['options'][1][idx]) {
 	    return 'top-filter-unset';
@@ -38,10 +64,9 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
 	}
     };
     
-    $scope.setPriceRange = function(normalized_range) {
+    $scope.setPriceRange = function(idx) {
 	$('.drop-down-details').removeClass('rolldown');
-	$scope.price_set = normalized_range;
-	$scope.price_ranges = $scope.range_values[normalized_range];
+	$scope.price_range_values[0] = idx;
     };
     $scope.setAge = function(shown_label) {
 	$scope.age_set = $scope.normalized_age[shown_label];
@@ -84,9 +109,8 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
 	// If price is chosen (TODO What's the default?) use that as an add'l filter
 	// note: price in the data is single choice
 
-	if($scope.price_ranges.length != 0) {
-	    matches = matches && $scope.price_ranges.indexOf(org['price_range']) != -1
-	}
+	var chosen_index = $scope.price_range_values[0];
+	matches = matches && ($scope.price_range_values[1][chosen_index]['normalized_list'].indexOf(org['price_range']) != -1);
 
 	// If age is chosen (TODO What's the default?) use that as an add'l filter
 	// note: age in the data is multiple choice
