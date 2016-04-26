@@ -16,14 +16,25 @@ class DropdownsTest < Test::Unit::TestCase
     assert page.has_css?('#dd-choice-0-1', visible: true)
   end
 
-  def test_chessboard
+  def test_skill_filter
+    assert page.has_css?('.org-box', visible: true, count: 11)
+    page.find('#dd-1').click #open
+    page.find('#dd-choice-1-3').click    
+    page.find('#skill_level-intermediate').click    
+
+    interm_child_vd_number = 6
     #puts page.find_all('.org-box').count
+    assert page.has_css?('.org-box', visible: true, count: interm_child_vd_number)
+  end
+  
+  def test_price_filter
     assert page.has_css?('.org-box', visible: true, count: 11)
     page.find('#dd-0').click
     page.find('#dd-choice-0-1').click
     page.find('#price-free').click
 
-    free_youth_number = 9
+    free_youth_number = 8
+    #puts page.find_all('.org-box').count
 
     assert page.has_css?('.org-box', visible: true, count: free_youth_number)
 

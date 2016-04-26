@@ -290,3 +290,6 @@ a.org-name-link,a.external-link {
 .float-right {
   float: right;
 }
+.org-attribute-row {
+  margin-bottom: 5px;
+}
