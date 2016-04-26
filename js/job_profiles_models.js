@@ -1,4 +1,6 @@
 angular.module('techpaths', ['ngRoute']).controller('jobprofiles_ctrl', ['$scope', function ($scope) {
+    $scope.job_profiles = [{category: 'Product Development', title: 'Product Manager', description: 'Brings a technology product to market in response to a customer need (from vision to planning to execution).'},{category: 'Product Development', title: 'User Experience Designers', description: 'Ensures that users have a valuable experience interacting with a digital or physical product or service.'},{category: 'Software', title: 'Coders/Programmers', description: 'Turns the designs made by software engineers and web developers into data instructions called code that computing devices can follow (end product: software & web pages).'},{category: 'Software', title: 'Web Developer', description: 'Designs and creates websites. Responsible for the look of the site (front-end) and behind the scenes interactions with servers and databases (back-end). Developers who work on both the front-end and back-end are called "full-stack" developers.'}];
+    
     $scope.profile_groups = ['Software', ['Software', 'Hardware', 'Product Development', 'Visual Design']]
     
     $scope.getFilterDisplay = function(idx, target_list) {
@@ -23,6 +25,6 @@ angular.module('techpaths', ['ngRoute']).controller('jobprofiles_ctrl', ['$scope
     };
 
     $scope.matches_filter = function(profile) {
-	return true;
+	return profile['category'] === $scope.profile_groups[0];
     };
 }]);

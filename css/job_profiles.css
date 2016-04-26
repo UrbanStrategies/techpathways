@@ -1,0 +1,21 @@
+/* navy blue or it looks like light gray to me:   color: #26323D; */
+/* dark blue: #0A80FF; */
+/* dark gray for bold text: #999; */
+/* light blue: 92D0FF */
+
+.job-profile-list {
+  z-index: 3;
+  margin-top: 25px;
+  background-color: #0A80FF;
+}
+
+.job-profile-list .title-box {
+  font-size: 1.5em;
+  color: #92D0FF;
+  margin-bottom: 5px;  
+}
+
+.job-profile-list .description-box {
+  color: white;
+  padding-bottom: 20px;
+}

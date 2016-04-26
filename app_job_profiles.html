@@ -27,6 +27,7 @@
     <!-- Custom CSS -->
     <link href="css/agency_app.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
+    <link href="css/job_profiles.css" rel="stylesheet">
 </head>
 
 <body id="page-top" class="index" ng-controller='jobprofiles_ctrl'>
@@ -89,12 +90,16 @@
 	    </div>
 	  </div>
 	</div> <!-- table label-1 -->
-      </div>
       
-      <div class='job-profile-list' ng-repeat='profile in job_profiles'>
-	<div id='{{"jp-box-" + profile["id"]}}' ng-show='matches_filter(profile)' class='col-xs-4'>
-	  {{ profile['name'] }}
-	</div>
+	<div class='row job-profile-list' >
+	  <div id='{{"jp-box-" + profile["id"]}}' ng-repeat='profile in job_profiles' ng-show='matches_filter(profile)' class='col-xs-6'>
+	    <div class='title-box'>
+	      {{ profile['title'] }}
+	    </div>
+	    <div class='description-box'>
+	      {{ profile['description'] }}
+	    </div>
+	  </div>
       </div> <!-- ang repeater for all profiles
     </section>
 
