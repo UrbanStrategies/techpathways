@@ -6,7 +6,10 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     $scope.normalized_age = {
 	"a child" : "Children",
 	"a youth" : "Teens",
-	"an adult" : "Adults"
+	"an adult" : "Adults",
+	'a kid (under 12)' : 'Children',
+	'a teen (upto 17)' : 'Teens',
+	'an adult (18+)' : 'Adults'
     };
     
     $scope.age_set = 'Children'

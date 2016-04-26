@@ -19,3 +19,19 @@
   color: white;
   padding-bottom: 20px;
 }
+
+.modal-main {
+  width: 100%;
+  display: none;
+  z-index: 3;
+  background: rgba(170, 170, 160, 0.6);
+  position: absolute;
+}
+
+.modal-main .modal-container {
+  border-radius: 5px;
+  background-color: white;
+  margin: 100px auto 0;
+  width: 75%;
+  height: 50%;
+}

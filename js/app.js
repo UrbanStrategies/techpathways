@@ -25,4 +25,6 @@ $(document).ready(function() {
     $('.modal-close').click(function(evt, target) {
 	$(evt.target).closest('.course-modal').hide();
     });
+
+    $('.modal-main').height($(document).height()-100);
 });
