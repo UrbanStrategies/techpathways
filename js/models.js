@@ -17,6 +17,16 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
     $scope.price_set = 'Any';
     $scope.price_ranges = $scope.range_values[$scope.price_set];
 
+    $scope.display_convert = function(key, input) {
+	if (key === 'price') {
+	    if (input === '$$$$$') {
+		return '---';
+	    };
+	};
+	return input;
+    };
+	    
+
     $scope.getTopFilterClass = function(idx, rec) {
 	if (rec['options'][0] === rec['options'][1][idx]) {
 	    return 'top-filter-unset';

@@ -172,7 +172,7 @@
 		<div class='row'>		  
 		  <div class='col-lg-6 col-lg-offset-1 col-xs-12  lesson-attributes'>
 		    <div class=' box-left'>
-		      <span class='attribute-label'>Price</span> {{ org['price_range'] }} 
+		      <span class='attribute-label'>Price</span> {{ display_convert('price', org['price_range']) }} 
 		    </div>
 		    <div class=' box-left not-first'>
 		      <span class='attribute-label'>Caters to</span> {{ org['age_range'].join(', ') }} 
