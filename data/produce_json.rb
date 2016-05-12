@@ -65,8 +65,8 @@ class DataProducer
   
   def output
     print 'window.orgs = '
-    print @orgs.to_json
-    puts ';'
+    print @orgs.to_json.gsub(/(.\"id\"\:\d)/, "\n\\1")
+    puts ";\n"
   end
 
   def show_collations

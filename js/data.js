@@ -23,7 +23,7 @@ window.dd_choices =[{
     'id': 0,
     'dropdown_type' : 'learner taxonomy',
     'label': "I'm",
-    'options': ['a kid (under 12)', ['a kid (under 12)', 'a teen (upto 17)', 'an adult (18+)']]
+    'options': ['a teen (upto 17)', ['a kid (under 12)', 'a teen (upto 17)', 'an adult (18+)']]
 }, {
     'id': 1,
     'dropdown_type' : 'skill taxonomy',
