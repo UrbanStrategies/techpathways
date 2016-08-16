@@ -54,13 +54,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/">Students</a>
+                        <a class="page-scroll" href="/">Find Training Programs</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/app_job_profiles.html">Job Profiles</a>
+                        <a class="page-scroll" href="/app_job_profiles.html">Career Paths</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="http://techpathways.org/">About</a>
+                        <a class="page-scroll" href="http://techpathways.org/#contact">Contact Us</a>
                     </li>
                 </ul>
             </div>
@@ -129,7 +129,7 @@
 	<div class='row org-list'>
 	  <div class='col-xs-12'>
 	    <div class='row org-result-box' ng-show='matches_filter(org)' ng-repeat='org in orgs' ng-cloak>
-	      <div id='{{"org-box-" + org["id"]}}' class='col-xs-12 org-box'>
+	      <div id='{{"org-box-" + org["id"]}}' class='col-xs-12 org-box' ng-click='toggle_show_status(org)'>
 		<div class='row'>
 		  <div class='col-lg-1 col-xs-2 org-icon'>
 		    <img ng-src="{{org['logo_link']}}" class='img-responsive'>
@@ -140,7 +140,7 @@
 		      {{ org['name'] }}
 		    </div>
 		    <div class=' org-description'>
-		      {{ org['short_desc'] }}
+		      {{ show_desc(org, 'description') }}
 		    </div>
 		  </div>
 
@@ -148,13 +148,20 @@
 		    <div class='org-logo'>
 		    </div>
 		    <div class=' org-description'>
-		      <span class='attribute-label'>Training Includes </span>{{ org['short_training'] }}
+		      <span class='attribute-label'>Training Includes </span>{{ show_desc(org, 'programs') }}
 		    </div>
 		  </div>
 		</div>
 		
-		<div class='row'>		  
-		  <div class='col-lg-6 col-lg-offset-1 col-xs-12  lesson-attributes'>
+		<div class='row extra-details-row'>
+		  <div class='col-lg-1 col-xs-2'>
+		    <div ng-show='has_certificate(org)' class='cert-wrapper'>
+		      <div class='cert-hover'>{{ org['certification'] }}</div>
+		      <img src='img/certificate-icon.png' class='img-responsive certificate' alt='Click to see certifications offered'>
+		    </div>
+		  </div>
+		  
+		  <div class='col-lg-5 col-xs-5  lesson-attributes'>
 		    <div class=' box-left'>
 		      <span class='attribute-label'>Price</span> {{ display_convert('price', org['price_range']) }} 
 		    </div>
@@ -163,7 +170,7 @@
 		    </div>
 		  </div>
 		
-		  <div class=' col-lg-5 col-xs-12 lesson-attributes'>
+		  <div class=' col-lg-6 col-xs-5 lesson-attributes'>
 		    <div class='box-right'>
 		      <span class='attribute-label negative'>Start Learning Here</span> 
 		    </div>
@@ -175,21 +182,19 @@
 	      <div class='col-xs-12 drop-down-details' data-target-id="details-{{org['id']}}">
 		<div class='row details-box'>
 		  <div class='col-xs-offset-1 col-xs-11'>
-		    <div class='row org-attribute-row'>
-		      <div class='col-xs-1 attribute-label'>
-			Mission
-		      </div>
-		      <div class='col-xs-11'>
-			{{ org['description'] }}
-		      </div>
-		    </div>
 		    
 		    <div class='row org-attribute-row'>
 		      <div class='col-xs-1 attribute-label'>
 			Website
 		      </div>
-		      <div class='col-xs-11'>
+		      <div class='col-xs-5'>
 			<a class='external-link' href='{{org["website"] }}'>{{ org['website'] }}</a>
+		      </div>
+		      <div class='col-xs-1 attribute-label'>
+			Email
+		      </div>
+		      <div class='col-xs-5'>
+			<a class='external-link' href='mailto:{{org["email"] }}'>{{ org['email'] }}</a>
 		      </div>
 		    </div>
 
@@ -199,15 +204,6 @@
 		      </div>
 		      <div class='col-xs-11'>
 			{{ org["skill_level"].join(', ') }}
-		      </div>		  
-		    </div>
-
-		    <div class='row org-attribute-row'>
-		      <div class=' col-xs-1 attribute-label'>
-			Programs
-		      </div>
-		      <div class='col-xs-11'>
-			{{ org["areas"].join(', ') }}
 		      </div>		  
 		    </div>
 		    
@@ -250,7 +246,6 @@
   ga('send', 'pageview');
 
 </script>
-
 
 </body>
 

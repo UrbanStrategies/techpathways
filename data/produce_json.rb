@@ -37,6 +37,8 @@ class DataProducer
       h[:id] = @counter - 1
       h[:name] = fields[1].strip
       h[:description] = fields[3].strip
+      h[:certification] = fields[17]
+      h[:email] = fields[47]
       h[:short_desc] = h[:description][0..@short_length] + '...'
 
       h[:skill_level] = fields[7].split(/\s*,\s*/)

@@ -1,7 +1,10 @@
 angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope', function ($scope) {
     $scope.dd_recs = window.dd_choices;
     $scope.orgs = window.orgs;
-
+    $scope.orgs.forEach(function(elt, idx) {
+	elt['rolled_out'] = false;
+    });
+    
     // Convert the shown age label to the internal age label
     $scope.normalized_age = {
 	"a child" : "Children",
@@ -71,6 +74,22 @@ angular.module('techpaths', ['ngRoute']).controller('techpaths_ctrl', ['$scope',
 	$scope.age_set = $scope.normalized_age[shown_label];
     };
 
+    $scope.toggle_show_status = function(org) {
+	org['rolled_out'] = !org['rolled_out'];
+    };
+
+    $scope.has_certificate = function(org) {
+	return org['certification'].trim() != ''
+    };
+    
+    $scope.show_desc = function(org, type) {
+	if (type == 'description') {
+	    return (org['rolled_out'] ? org['description'] : org['short_desc']);
+	} else if (type == 'programs') {
+	    return (org['rolled_out'] ? org['areas'].join(', ').replace(/,\s*,/, ', ') : org['short_training']);
+	}
+    };
+    
     $scope.matches_filter = function(org) {
 	// Filter by skill taxonomy and also by price range if range is set
         var skill_rec, f_orgs, age_range;

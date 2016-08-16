@@ -22,7 +22,16 @@ $(document).ready(function() {
 	}
     });
 
-    $('.modal-close').click(function(evt, target) {
+    // Hover behavior for cert icons
+
+    $('.cert-wrapper').mouseenter(function(evt) {
+	$(evt.target).closest('.cert-wrapper').find('.cert-hover').show();
+    });
+    $('.cert-wrapper').mouseleave(function(evt) {
+	$(evt.target).closest('.cert-wrapper').find('.cert-hover').hide();
+    });
+    
+    $('.modal-close').click(function(evt) {
 	$(evt.target).closest('.course-modal').hide();
     });
 
