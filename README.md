@@ -8,7 +8,7 @@ Initial design for techPathWays.org
 * The code repo is in https://github.com/UrbanStrategies/techpathways/ - in case you are reading this elsewhere than Github.
 * The app is in the `app_ui` branch
 * It is an "SPA" (single page application) using Angular 1.5.2.
-* It is deployed to Heroku at techpathways.herokuapp.com
+* It is deployed to Heroku at techpathways.herokuapp.com with the PHP build pack. The `index.php` file simply serves `app_main_page.html`
 
 # Data
 
