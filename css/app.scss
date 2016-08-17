@@ -329,22 +329,22 @@ a.org-name-link,a.external-link {
 
 .cert-wrapper {
   position: relative;
-}
 
-.cert-wrapper .cert-hover {
-  position: absolute;
-  display: none;
-  left: 55px;
-  top: -19px;
-  background-color: white;
-  z-index: 2;
-  border: solid 1px black;
-  border-radius: 5px;
-  padding: 2px 5px;
-}
+  .cert-hover {
+    position: absolute;
+    display: none;
+    left: 55px;
+    top: -19px;
+    background-color: white;
+    z-index: 2;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 2px 5px;
+  }
 
-.cert-wrapper .certificate {
-  max-width: 35px;
-  max-height: 35px;
-  margin: 0 auto;
+  .certificate {
+    max-width: 35px;
+    max-height: 35px;
+    margin: 0 auto;
+  }
 }
