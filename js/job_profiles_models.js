@@ -1,6 +1,20 @@
 angular.module('techpaths', ['ngRoute']).controller('jobprofiles_ctrl', ['$scope', function ($scope) {
+    $scope.profile_groups = window.profile.profile_groups;
+    $scope.job_profiles = window.profile.job_profiles;
+    $scope.profile_list = window.profile.profile_list;
+    $scope.shown_profile_keys = [];
+
+    $scope.entry_salary_choice = function(profile_obj) {
+	return profile_obj['salary'][1] === -1 ? profile_obj['salary'][0] : profile_obj['salary'][1]
+    }
     
-    $scope.profile_groups = ['Software', ['Software', 'Hardware', 'Product Development', 'Visual Design']]
+    $scope.tenyear_message = function(profile_obj) {
+	if(profile_obj['salary'][1] === -1) {
+	    return '';
+	} else {
+	    return 'in 10 years, salary can be ' + profile_obj['salary'][0]
+	}
+    }
     
     $scope.getFilterDisplay = function(idx, target_list) {
 	str = '';
@@ -27,14 +41,19 @@ angular.module('techpaths', ['ngRoute']).controller('jobprofiles_ctrl', ['$scope
 	return profile['category'] === $scope.profile_groups[0];
     };
 
+    $scope.is_on = function(key) {
+	return $scope.shown_profile_key == key;
+    };
 
-    $scope.job_profiles = [{category: 'Product Development', title: 'Product Manager', description: 'Brings a technology product to market in response to a customer need (from vision to planning to execution).'},
-			   {category: 'Product Development', title: 'User Experience Designers', description: 'Ensures that users have a valuable experience interacting with a digital or physical product or service.'},
-			   {category: 'Software', title: 'Coders/Programmers', description: 'Turns the designs made by software engineers and web developers into data instructions called code that computing devices can follow (end product: software & web pages).'},{category: 'Software', title: 'Web Developer', description: 'Designs and creates websites. Responsible for the look of the site (front-end) and behind the scenes interactions with servers and databases (back-end). Developers who work on both the front-end and back-end are called "full-stack" developers.'},
-			   {category: 'Hardware', title: 'Hardware Engineer', description: 'Designs, develops, and tests physical computing devices and their internal and external components.'},
-			   {category: 'Software', title: 'Software Engineer', description: 'Designs, develops, and tests the virtual operating systems and applications that run on computing devices.'},
+    $scope.turn_on = function(key) {
+	$scope.shown_profile_key = key
+	return $scope.shown_profile_key;
+    };
 
-			   {category: 'Visual Design', title: 'Graphic & Multi-media Designers (including 3D animators)', description: 'Combines art and technology to visually inspire, inform, and captivate.  Graphic designers work on still images for print or the web, whereas multi-media designers and animators produce animation for video games, movies, television, and the web.'},
-			  ];
-    
+    $scope.find_profile_data = function(key) {
+	// First profile_list element whose key matches _key_
+	return $scope.profile_list.filter( function(element) {
+	    return element['key'] == key
+	})[0];
+    };
 }]);

@@ -16,7 +16,10 @@
     <script src="js/externals/jquery/jquery-2.2.2.min.js"></script>
 
 
+    <script src='js/data.js'></script>
+    <script src='js/extracted_profile_data.js'></script>
     <script src='js/job_profiles_models.js'></script>
+    <script src='js/app_job_profiles.js'></script>
 
     <title>Tech Pathways</title>
 
@@ -26,12 +29,103 @@
     
     <!-- Custom CSS -->
     <link href="css/agency_app.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
-    <link href="css/job_profiles.css" rel="stylesheet">
+    <link href="build/css/common.css" rel="stylesheet">
+    <link href="build/css/app.css" rel="stylesheet">
+    <link href="build/css/job_profiles.css" rel="stylesheet">
 </head>
 
 <body id="page-top" class="index" ng-controller='jobprofiles_ctrl'>
+  <div class='overlay-grayout'>
+    <!-- job profiles boxes -->
+    <div class='overlay'>
+	<div class='x-box'>
+	  <img src='img/close.svg'>
+	</div>
+	      <div class='profile-list' ng-repeat='profile_info in profile_list' ng-cloak>
+		<div class='profile-details-box' id='{{ "profile-" + profile_info['id']}}' ng-show='is_on(profile_info["key"])'>
+		  <div class='row para-row align-center '>
+		    <div class='col-xs-12 '>
+		      <div class='big-font'>
+			{{ profile_info['name'] }}
+		      </div>
+		    </div>
+		    <div class='col-xs-12'>
+		      <div class='normal-font'>
+			Purpose: {{ profile_info['tag_line'] }}
+		      </div>
+		    </div>
+		  </div>
+		  <div class='row para-row  align-center '>
+		    <div class='col-xs-12 '>
+		      <div class='salary-main'>
+			<span class='bold-font'>
+			  {{ entry_salary_choice(profile_info) }} annual
+			</span>
+			<span class='small-font'>
+			  (median entry level)
+			</span>
+		      </div>
 
+		      <div class='salary-senior'>
+			<span class='small-font'>
+			  {{ tenyear_message(profile_info) }}
+			</span>
+		      
+		    </div>
+		    <div class='col-xs-12 para-row'>
+		      <div class='medium-font'>
+			{{ profile_info['wage_range'] }}
+		      </div>
+		    </div>
+		  </div>
+
+		  <!-- everything below salary -->
+		  <div class='cancel-margins row para-row align-center '>		    
+		    <div class='col-xs-6 '>
+		      <div class='row cancel-margins'>
+			<div class='col-xs-12 margin-bottom'>
+			  <div class='subpara-title'>
+			    What do you need to succeed at this job?
+			  </div>
+			  <div class='subpara-text'>
+			    {{ profile_info['description'] }}
+			  </div>
+			</div>
+
+			<div class='col-xs-12'>
+			  <div class='subpara-title'>
+			    Activities
+			  </div>
+			  <ul class='subpara-text' ng-cloak>
+			    <li ng-repeat='skill in profile_info["activities"]' >
+			      {{ skill }}
+			    </li>
+			  </ul>
+			</div>
+			
+		      </div>
+		    </div>
+		    <div class='col-xs-6 '>
+		      <div class='row'>
+			<div class='col-xs-12'>
+			  <div class='subpara-title'>
+			    Skills required for this pathway
+			  </div>
+			  <ul class='subpara-text' ng-cloak>
+			    <li ng-repeat='skill in profile_info["skills"]' >
+			      {{ skill }}
+			    </li>
+			  </ul>
+			</div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container headercontainer">
@@ -80,8 +174,7 @@
         <div class="dots"></div>
         <div class="hash"></div>
       </div>
-      <div class="container main-container">
-	<!-- left side filter - Age -->
+      <div class="container main-container">	
         <div class="row table-label-1">
 	  <div class='col-xs-12 '>
 	    <div class='col-xs-12 text-center'>
@@ -96,13 +189,15 @@
 	</div> <!-- table label-1 -->
       
 	<div class='row job-profile-list' >
-	  <div id='{{"jp-box-" + profile["id"]}}' ng-repeat='profile in job_profiles' ng-show='matches_filter(profile)' class='col-xs-6'>
+	  <div id='{{"jp-box-" + profile["id"]}}' ng-repeat='profile in job_profiles' ng-show='matches_filter(profile)' class='col-sm-6 col-xs-12 jp-box' ng-click='turn_on(profile["key"])' ng-cloak>
 	    <div class='title-box'>
-	      {{ profile['title'] }}
+	      {{ find_profile_data(profile['key'])['name'] }}
 	    </div>
 	    <div class='description-box'>
-	      {{ profile['description'] }}
+	      {{ find_profile_data(profile['key'])['purpose_tiny'] }}
 	    </div>
+	    <div class='jp-box-overlay-frill'></div>
+	    
 	  </div>
       </div> <!-- ang repeater for all profiles
     </section>
