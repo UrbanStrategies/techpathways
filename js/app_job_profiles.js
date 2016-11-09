@@ -9,7 +9,7 @@ $(document).ready(function() {
 	}
     });
     
-    $('.x-box').click(function(evt) {
+    $('.overlay-grayout,.x-box').click(function(evt) {
 	reset_overlay();
     });
     
